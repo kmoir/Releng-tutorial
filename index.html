@@ -57,15 +57,13 @@
                                         <ol>
                                                 <li>Introductions</li>
                                                 <li>Overview of Release Engineering</li>
-                                                <li>Scaling your CI</li>
-                                                <li>Version Control</li>
+                                                <li>Version Control? </li>
                                                 <li>Continuous Integration</li>
                                                 <li>Build and Test pipelines</li>
+                                                <li>Scaling your CI</li>
                                                 <li>Deployment pipelines</li>
                                                 <li>REST APIs</li>
-                                                <li>Query Jenkins API</li>
                                                 <li>Further reading</li>
-                                                <li>Challenge Exercise</li>
                                         </ol>
                                 </section>
 
@@ -74,7 +72,6 @@
                                         <ol>
                                                 <li>Using your AWS Instance</li>
                                                 <li>Git</li>
-                                                <li>Installing and Configuring Jenkins</li>
                                                 <li>Setup a build on Jenkins</li>
                                                 <li>Build from commit on Jenkins</li>
                                                 <li>Run tests on Jenkins</li>
@@ -134,6 +131,73 @@
                                 <aside class="notes">
                                 </aside>
                                 </section> 
+
+                                <section>
+                                        <h2>Why is it important?</h2>
+                                        <li>Consumers don't appreciate source code</li>
+                                        <li>Test and deploy to websites such as Facebook, Google, LinkedIn</li>
+                                        <li>Package, sign desktop and mobile apps on multiple platforms</li>
+                                        <li>Windows, Linux, Mac, mobile</li> 
+                                        <li>Android, IOS, Blackberry, FirefoxOS</li>
+                                <aside class="notes">
+                                </aside>
+                                </section>
+
+                               <section>
+                                        <h2>Example: Long tail of Android support at Facebook</h2>
+                                        <p><a href="https://www.usenix.org/conference/ures14/technical-sessions/presentation/moving-mobile">Chuck Rossi, release engineering, Facebook</a>
+                               <aside class="notes">
+                               </aside>
+                               </section>
+                               
+                               <section>
+                                   <h2>Example: building a physical device lab at Etsy</h2 >
+                                    <p><a href="http://youtu.be/RTez9SEi2xI?t=4m45s">Lara Swanson and Destiny Montague talking about building a physical device lab</a>
+                               </section> 
+
+                               <section>
+                                   <h2>Example: Going from 3 week to Daily releases at Netflix </h2 >
+                                    <p><a href="http://youtu.be/RTez9SEi2xI?t=4m45s">Lara Swanson and Destiny Montague talking about building a physical device lab</a>
+                               </section> 
+
+                               <section>
+                                        <h2>Role of the Release Engineer</h2>
+                                        <p> this should be a picture of a pipeline versus text. Notes can be text</p>
+					<ul>
+                                        <li>focus on building a pipeline versus a product</li>
+					<ul>
+                                        <li>scope depends on where you work</li>
+                                        <li>scale depends on code base size and the number of products and tests</li>
+                                        <li>How many commits to the code base?<l/i>
+                                        <li>How often do you release?</li>
+					</ul>
+					</ul>
+                                <aside class="notes">
+                                               Why can't it be just a regular developer doing this job?  Sometimes it is.  However, developers get very attached to their code and want to push new features despite them lacking stability.  Release engineers are not emotionally attached to the feature, their focus is on building the pipeline that allows them to ship.
+                                </aside>
+                                </section>
+
+
+                                <section>
+                                    <h2>Lab 1: Using your AWS instance</h2>
+                                     <p>Goal: Login to your AWS instance via ssh.  Query the packages that are available on it </li>
+                                     <ul>
+                                     <li>AWS = Amazon web services</li>
+                                     <li>Shared cloud resources</li>
+                                     <li>Different instance types - different resources - memory, disk, CPU</li>
+                                     </ul>
+                                </section>  
+
+
+                                <section>
+                                    <h2>Lab 2: Git</h2>
+				     <ul>
+                                     <li>Git is a distributed version control system</li>
+                                     <li>Git Design Goals: fast, secure, distributed</li>
+                                     <li>Each commit has a corresponding hash key</li>
+                                     <li>Everyone has a local copy of the history</li>
+				     </ul>
+                                </section>  
 
                                 <section>
                                         <h2>Further Reading</h2>
