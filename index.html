@@ -57,7 +57,6 @@
                                         <ol>
                                                 <li>Introductions</li>
                                                 <li>Overview of Release Engineering</li>
-                                                <li>Version Control? </li>
                                                 <li>Continuous Integration</li>
                                                 <li>Build and Test pipelines</li>
                                                 <li>Scaling your CI</li>
@@ -83,9 +82,6 @@
                                                 <li>Challenge Exercise</li>
                                         </ol>
                                 </section>
-
-
-
 
 				<section>
 					<h2>About: me</h2>
@@ -132,6 +128,46 @@
                                 </aside>
                                 </section> 
 
+                                <section>
+                                         <a class="image" href="images/relengsimple.png" target="_blank">
+                                             <img width="867" height="550" src="images/relengsimple.png" alt="relengsimple">
+                                        </a>
+                                        <br><small><a href="http://oduinn.com/blog/2013/06/07/release-engineering-as-a-force-multiplier-relengcon-2013/">John O'Duinn's Mozilla release pipeline</a></br></small>
+                                <aside class="notes">
+                                </aside>
+                                </section>
+
+                                <section>
+                                        <h2>Role of the Release Engineer</h2>
+                                        <ul>
+                                        <li>Focus on building a pipeline versus a product</li>
+                                        <ul>
+                                        <li>scope depends on where you work</li>
+                                        <li>scale depends on</li> 
+                                        <ul>
+                                        <li>number of products</li>
+                                        <li>number of platforms x supported versions</li>
+                                        <li>number of tests</li>
+                                        <li>number of commits</li>
+                                        <li>release cadence</li>
+                                        </ul>
+                                        </ul>
+                                        </ul>
+                                <aside class="notes">
+                                               Why can't it be just a regular developer doing this job?  Sometimes it is.  However, developers get very attached to their code and want to push new features despite them lacking stability.  Release engineers are not emotionally attached to the feature, their focus is on building the pipeline that allows them to ship.
+                                </aside>
+                                </section>
+
+
+                                <section>
+                                         <a class="image" href="images/relengflows.png" target="_blank">
+                                             <img width="867" height="550" src="images/relengflows.png" alt="relengflows">
+                                        </a> 
+                                        <br><small><a href="https://wiki.mozilla.org/images/5/5b/Releng_flow_onepage.pdf">Selena Deckelman's diagram of Mozilla Release Engineering flows</a></br></small>
+                                <aside class="notes">
+                                </aside>
+                                </section>
+
 
                                 <section>
                                 <h2>Why is it important?</h2>
@@ -147,11 +183,11 @@
                                 <section>
                                         <h2>Committing code is only the first step</h2>
 					<ul>
-				        <li>Test and deploy to websites</li>
+				        <li>Test and deploy to web sites</li>
 					<li>mobile apps </li>
 					<li>desktop</li>
 					<li>operating systems</li>
-					<li>webservers</li>
+					<li>banks, online retailers....</li>
                                         <li>Compile, package, sign on multiple platforms</li>
 					<ul>
                                         <li>Windows, Linux, Mac, mobile</li> 
@@ -163,6 +199,70 @@
 				     <p>Websites such as Google, Facebook, Twitter</p>
                                 </aside>
                                 </section>
+
+                              <section>
+                                        <h2>Other related disciplines:</h2>
+                                        <h2>Configuration Management</h2>
+                               <aside class="notes">
+                                      <p>Puppet, Chef, Ansible, Docker</p>
+                               </aside> 
+                               </section>
+
+                               <section>
+                                        <h2>Build, Test and Release Automation</h2>
+                               <aside class="notes">
+                                      <p>Automate all the things - xckd comic</p>
+                               </aside>
+                               </section>
+
+                               <section>
+                                        <h2>Release Management</h2>
+                               <aside class="notes">
+                                      <p>Coordinating with a development team to determine what is shipped in release</p>
+                               </aside>
+                               </section>
+
+                               <section>
+                                        <h2>Repository Management</h2>
+                                        <a class="image" href="images/reposcale.png" target="_blank">
+                                     <img width="628" height="324" src="images/reposcale.png" alt="mozillareposcale">
+                                </a>
+                               <aside class="notes">
+                               </aside>
+                               </section>
+
+                               <section>
+                                        <h2>Package Management</h2>
+                               <aside class="notes">
+                                   artifactory, maven repos, p2 repos, pypi, custom rpms, different languages or operating systems have different package management systems and thus different ways of managing dependencies i.e. pip, apt-get, java jars. And there are also different types of deployment artifacts
+                               </aside>
+                               </section>
+
+                              <section>
+                                        <h2>Testing and Quality Assurance</h2>
+                                        <ul>
+                                        <li>Test harnesses</li>
+                                        <li>Porting tests to new platforms</li>
+                                        <li>Unit tests</li>
+                                        <li>Performance tests</li>
+                                        <li>Regression testing</li>
+                                        </ul>
+                               <aside class="notes">
+                               </aside>
+                               </section>
+
+                               <section>
+                                        <h2>Continous Integration/Deployment</h2>
+                                        <ul>
+                                        <li>Evaluating tools</li>
+                                        <li>Optimizing the pipeline for shorter end to end times</li>
+                                        <li>Removing bottlenecks and finding more</li>
+                                        <li>Evaluating lower cost solutions</li>
+                                        </ul>
+                               <aside class="notes">
+                               </aside>
+                               </section>
+
 
                                <section>
                                         <h2>Long tail of Android support</h2>
@@ -183,24 +283,6 @@
 			             dependancy relationships at 2:49
                                </aside>
                                </section> 
-
-                               <section>
-                                        <h2>Role of the Release Engineer</h2>
-                                        <p> this should be a picture of a pipeline versus text. Notes can be text</p>
-					<ul>
-                                        <li>focus on building a pipeline versus a product</li>
-					<ul>
-                                        <li>scope depends on where you work</li>
-                                        <li>scale depends on code base size and the number of products and tests</li>
-                                        <li>How many commits to the code base?<l/i>
-                                        <li>How often do you release?</li>
-					</ul>
-					</ul>
-                                <aside class="notes">
-                                               Why can't it be just a regular developer doing this job?  Sometimes it is.  However, developers get very attached to their code and want to push new features despite them lacking stability.  Release engineers are not emotionally attached to the feature, their focus is on building the pipeline that allows them to ship.
-                                </aside>
-                                </section>
-
 
                                 <section>
                                     <h2>Lab 1: Using your AWS instance</h2>
@@ -223,6 +305,21 @@
 				     </ul>
                                 </section>  
 
+                                 <section>
+                                    <h2>Lab 2: Git - quick command guide</h2>
+                                     <pre>
+			             git init
+                                     git clone repo_name
+                                     cd repo_name
+                                     create my_file
+                                     git add my_file
+                                     git status
+                                     git commit . -m "a comment"
+                                     git push
+                                     git branch
+                                     </pre>
+                                </section>
+ 
                                 <section>
                                         <h2>Further Reading</h2>
                                         <small><li><a href="http://continuousdelivery.com/">Continuous Delivery - Jez Humble and David Farley</a></li>
