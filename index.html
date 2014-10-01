@@ -308,16 +308,20 @@
                                  <section>
                                     <h2>Lab 2: Git - quick command guide</h2>
                                      <pre>
-			             git init
-                                     git clone repo_name
-                                     cd repo_name
-                                     create my_file
-                                     git add my_file
-                                     git status
-                                     git commit . -m "a comment"
-                                     git push
-                                     git branch
-                                     </pre>
+git clone repo_name           #clone a repository locally
+cd repo_name        
+vi my_file          
+git add my_file               #add my_file to git tracking
+git status	              #see the status of the git repository 
+git commit . -m "a comment"   #commit the change to the local repository
+git push                      #push the change to the remote repository
+git branch	              #show current branch
+git checkout -b v2	      #create new local branch
+				     </pre>
+                                <aside class="notes">
+                                      You can use Git within an IDE if you want, but these are the command line arguments 
+                                </aside>
+
                                 </section>
  
                                 <section>
