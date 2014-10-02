@@ -48,7 +48,8 @@
                                         <h2>Building the Pipeline</h2>
                                         <h4>PLOW Lecture, Ecole Polytechnique, October 2014</h4>
                                         <p>
-                                                <small>Your instructor  <a href="http://relengofthenerds.blogspot.com">Kim Moir</a> / <a href="http://twitter.com/kmoir">@kmoir</a></small>
+					<small>Your instructor  <a href="http://relengofthenerds.blogspot.com">Kim Moir</a> / <a href="http://twitter.com/kmoir">@kmoir</a></small><br>
+                                                <small>This presentation <a href="https://github.com/kmoir/Releng-tutorial">https://github.com/kmoir/Releng-tutorial</a></small>
                                         </p>
 				</section>
 
@@ -78,7 +79,7 @@
                                                 <li>Add Jenkins Plugins</li>
                                                 <li>Create a pipeline by chaining some builds together</li>
                                                 <li>Deploy Jenkins API</li>
-                                                <li>Query Jenkins API</li>
+                                                <li>Query Jenkins REST API</li>
                                                 <li>Challenge Exercise</li>
                                         </ol>
                                 </section>
@@ -304,6 +305,21 @@
                                </aside>
                                </section> 
 
+                               <section>
+                                    <h2>Our project</h2>
+                                     <p></li>
+                                     <ul>
+                                     <li>Setup a simple build pipeline using Jenkins on AWS</li>
+                                     <li>Setup builds for different branches</li>
+                                     <li>Setup tests</li>
+                                     <li>Install additional Jenkins plugins</li>
+                                     <li>Deploy your build</li>
+                                     <li>Query Jenkins build status using REST API</li>
+                                     </ul>
+                                </section>
+
+
+
                                 <section>
                                     <h2>Lab 1: Using your AWS instance</h2>
                                      <p>Goal: Login to your AWS instance via ssh.  Query the packages that are available on it </li>
@@ -341,9 +357,72 @@ git checkout -b v2            #create new local branch
                                 <aside class="notes">
                                       You can use Git within an IDE if you want, but these are the command line arguments 
                                 </aside>
-
                                 </section>
- 
+
+
+                              <section>
+                                    <h2>Lab 2: Git exercise</h2>
+                                     <pre>
+cd /home/ubuntu
+git clone https://github.com/salimfadhley/jenkinsapi     
+cd jenkinsapi
+git status
+git log
+                                     </pre>
+                                <aside class="notes">
+                                     Clone the jenkinsapi project locally to your AWS machine
+                                     Look at the status of the repo (no pending changes) 
+                                     git log - look at recent changes
+                                </aside>
+                                </section>
+
+                              <section>
+                                    <h2>Lab 3: Jenkins</h2>
+                                    <p>Jenkins welcome page</p>
+                                        <a class="image" href="images/jenkinswelcome.png" target="_blank">
+                                     <img width="1002" height="483" src="images/jenkinswelcome.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                               <section>
+                                    <h2>Lab 3: Jenkins: Create a job</h2>
+                                    <ul>
+                                    <li>Select <b>New Item</b> on left side of screen</li>
+                                    <li>In <b>Item name</b> give your job a name</li>
+                                    <li>Select <b>Freestyle project</b> and select <b>OK</b></li>
+                                    </ul>
+                                        <a class="image" href="images/jenkinsjob.png" target="_blank">
+                                     <img width="1419" height="537" src="images/jenkinsjob.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                               <section>
+                                    <h2>Lab 3: Jenkins: Configure a job</h2>
+                                    <ul>
+                                    <li>Select <b>Configure</b> on left side of screen</li>
+                                    </ul>
+                                        <a class="image" href="images/jenkinsconfig.png" target="_blank">
+                                     <img width="1420" height="476" src="images/jenkinsconfig.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                               <section>
+                                    <h2>Lab 3: Jenkins: Configure a job(3)</h2>
+                                    <ul>
+                                    <li>Select <b>Configure</b> on left side of screen</li>
+                                    </ul>
+                                        <a class="image" href="images/jenkinsconfig.png" target="_blank">
+                                     <img width="1420" height="476" src="images/jenkinsconfig.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+
+
+
                                 <section>
                                         <h2>Further Reading</h2>
                                         <small><li><a href="http://continuousdelivery.com/">Continuous Delivery - Jez Humble and David Farley</a></li>
