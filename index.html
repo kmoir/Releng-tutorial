@@ -74,6 +74,7 @@
                                                 <li>Git</li>
                                                 <li>Setup a build on Jenkins</li>
                                                 <li>Build from commit on Jenkins</li>
+                                                <li>Update build scripts to run real build</li>
                                                 <li>Run tests on Jenkins</li>
                                                 <li>Branch your repo and add new jobs</li>
                                                 <li>Add Jenkins Plugins</li>
@@ -368,6 +369,8 @@ git clone https://github.com/salimfadhley/jenkinsapi
 cd jenkinsapi
 git status
 git log
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
                                      </pre>
                                 <aside class="notes">
                                      Clone the jenkinsapi project locally to your AWS machine
@@ -424,18 +427,75 @@ git log
                                 </section>
 
                                <section>
-                                    <h2>Lab 3: Jenkins: Configure a job(3)</h2>
+                                    <h2>Lab 3: Jenkins: Clone from Git</h2>
                                     <ul>
-                                    <li>Select <b>Configure</b> on left side of screen</li>
+                                    <li>Under <b>Source Code Management</b> select Git</li>
+				    <li>Under <b>Repository URL	</b> enter the path to your local git repository i.e. /home/ubuntu/jenkinsapi and select <b>Save</b></li>
+                                    <li>Then select  <b>Build Now</b> on the left hand side of the screen</li>
                                     </ul>
-                                        <a class="image" href="images/jenkinsconfig.png" target="_blank">
-                                     <img width="1420" height="476" src="images/jenkinsconfig.png" alt="mozillareposcale"></a>
+                                        <a class="image" href="images/jenkinsgit.png" target="_blank">
+                                     <img width="722" height="447" src="images/jenkinsgit.png" alt="mozillareposcale"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
 
+                               <section>
+                                    <h2>Lab 3: Jenkins: Look at Output</h2>
+                                    <ul>
+                                    <li>When the build finishes, look <b>Console Ouput</b> to see the output</li>
+                                    </ul>
+                                        <a class="image" href="images/jenkinsconsole.png" target="_blank">
+                                     <img width="1446" height="549" src="images/jenkinsconsole.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section> 
 
+                                <section>
+                                    <h2>Lab 4: Jenkins: Build on Commit</h2>
+                                    <ul>
+                                    <li>Select <b>Configure</b></li>
+                                    <li>Select <b>Poll SCM</b></li>
+                                    <li>Under <b>Schedule </b> enter <b>H/2 * * * *</b> to poll Git every two minutes</li>
+                                    </ul>
+                                        <a class="image" href="images/jenkinsgit.png" target="_blank">
+                                     <img width="722" height="447" src="images/jenkinsgit.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+				 
+                                 <section>
+                                    <h2>Lab 4: Jenkins: Commit a file</h2>
+                                    <pre>
+ubuntu@ip-172-31-31-167:~/jenkinsapi$ cat TODO 
+TODO:
 
+* Add a testsuite (preferably nose or py.test) which doesn't rely on a local jenkins setup (or instantiates one during test)
+* Clean up the fingerprint code
+* Clean up the resultset and results code
+* Make all objects inherit off jenkins_base where that makes sense
+* Add ability to add/modify/delete jobs
+* Add ability to query jenkins for plugin data
+
+ubuntu@ip-172-31-31-167:~/jenkinsapi$ vi TODO
+ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
+[master d55e7e2] updated TODO
+
+                                    </pre>
+                               <aside class="notes">
+                                  <p>You can update any file, it doesn't matter</p>
+                                </aside>
+                                </section>
+
+                                <section>
+                                    <h2>Lab 4: Jenkins: Look at job output</h2>
+                                    <ul>
+                                    </ul>
+                                        <a class="image" href="images/jenkinscommit.png" target="_blank">
+                                     <img width="1448" height="499" src="images/jenkinscommit.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+ 
 
                                 <section>
                                         <h2>Further Reading</h2>
