@@ -110,7 +110,7 @@
                                         <h2>What is release engineering?</h2>
                                          <blockquote cite="http://en.wikipedia.org/wiki/Release_engineering">
                                                 &ldquo;
-                                                a sub-discipline in software engineering concerned with the compilation, assembly, and delivery of source code into finished products or other software components. --Wikipedia
+                                                a sub-discipline in software engineering concerned with the compilation, assembly, and delivery of source code into finished products or other software components.    --Wikipedia
                                                 &rdquo;
                                         </blockquote> 
 					<aside class="notes">
@@ -149,7 +149,7 @@
                                 <section>
                                         <h2>Role of the Release Engineer</h2>
                                         <ul>
-                                        <li>Focus on building a pipeline versus a product</li>
+                                        <li>Focus on writing code to build a pipeline versus a product</li>
                                         <ul>
                                         <li>scope depends on where you work</li>
                                         <li>scale depends on</li> 
@@ -183,7 +183,7 @@
                                 <a class="image" href="images/sourcecode.png" target="_blank">
                                      <img width="541" height="463" src="images/sourcecode.png" alt="Mozilla">
                                 </a>
-                                <br><small><a href="https://hg.mozilla.org/mozilla-central/file/2ae57957e4bb/mobile/android/search/java/org/mozilla/search/SearchPreferenceActivity.java">Mozilla Mobile Source code</a></br></small>
+                                <br><small><a href="https://hg.mozilla.org/mozilla-central/file/2ae57957e4bb/mobile/android/search/java/org/mozilla/search/SearchPreferenceActivity.java">Firefox for Android source code</a></br></small>
                                 <aside class="notes">
                                         <p>Consumers don't appreciate source code</p>
                                 </aside>
@@ -235,10 +235,10 @@
                                <section>
                                         <h2>Continous Integration/Deployment</h2>
                                         <ul>
-                                        <li>Evaluating tools</li>
+                                        <li>Evaluating and writing tools</li>
                                         <li>Optimizing the pipeline for shorter end to end times</li>
-                                        <li>Removing bottlenecks and finding more</li>
-                                        <li>Evaluating lower cost solutions</li>
+                                        <li>Removing bottlenecks then finding more</li>
+                                        <li>Reducing costs and scaling capacity</li>
                                         </ul>
                                <aside class="notes">
                                </aside>
@@ -373,6 +373,21 @@ git log
                                      Clone the jenkinsapi project locally to your AWS machine
                                      Look at the status of the repo (no pending changes) 
                                      git log - look at recent changes
+                                </aside>
+                                </section>
+
+                               <section>
+                                    <h2>Lab 3: Jenkins</h2>
+                                    <ul>
+                                    <li>Jenkins is a continuous integration engine</li>
+                                    <li>Written in Java</li>
+                                    <li>open source</li>
+                                    <li>plugin architecture that allows you to write your own plugins for additional functionality</li>
+                                    <li> </li>
+                                    </ul>
+                               <aside class="notes">
+                                   http://jenkins-ci.org/
+                                   https://wiki.jenkins-ci.org/display/JENKINS/Plugins
                                 </aside>
                                 </section>
 
