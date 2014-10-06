@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Release Engineering 101: Building the Pipeline</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Slides for PLOW lecture in Montreal, October 2014">
+		<meta name="author" content="Kim Moir">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -42,6 +42,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+				<section>
 				<section>
                                         <h1>Release</h1>
                                         <h1>Engineering 101</h2>
@@ -106,6 +107,16 @@
                                         <h2>About: you</h2>
                                         <h2>?</h2>
                                 </section>
+				</section>
+				
+                                <section>
+                                <section>
+                                         <a class="image" href="images/6242766617_33374edd57_b.jpg" target="_blank">
+                                                <img src="images/6242766617_33374edd57_b.jpg" alt="overview">
+                                        </a>
+					<br><small><a href="https://flic.kr/p/avDP2c">© Forest Wander</a>, Creative Commons by-nc-sa 2.0</br></small>
+                                </section>
+
 
   				<section>
                                         <h2>What is release engineering?</h2>
@@ -193,15 +204,14 @@
                                 <section>
                                         <h2>Committing code is only the first step</h2>
 					<ul>
-				        <li>Test and deploy to web sites</li>
-					<li>mobile apps </li>
-					<li>desktop</li>
+				        <li>Build, test, package, sign and deploy</li>
+					<li>mobile and desktop apps </li>
 					<li>operating systems</li>
-					<li>banks, online retailers....</li>
-                                        <li>Compile, package, sign on multiple platforms</li>
+					<li>social media, banks, online retailers web sites....</li>
+                                        <li>also on multiple platforms</li>
 					<ul>
-                                        <li>Windows, Linux, Mac, mobile</li> 
-                                        <li>Android, IOS, Blackberry, FirefoxOS</li>
+                                        <li>Windows, Linux, Mac</li> 
+                                        <li>Mobile: Android, IOS, Blackberry, FirefoxOS</li>
 					</ul>
                                         <li>Optimize the pipeline to make developers more productive</li>
 				        </ul>
@@ -305,6 +315,7 @@
 			             dependancy relationships at 2:49
                                </aside>
                                </section> 
+                               </section>
 
                                <section>
                                     <h2>Our project</h2>
@@ -332,6 +343,7 @@
                                 </section>  
 
 
+				<section>
                                 <section>
                                     <h2>Lab 2: Git</h2>
 				     <ul>
@@ -378,7 +390,9 @@ git config --global user.email you@example.com
                                      git log - look at recent changes
                                 </aside>
                                 </section>
+				</section>
 
+			       <section>
                                <section>
                                     <h2>Lab 3: Jenkins</h2>
                                     <ul>
@@ -449,7 +463,10 @@ git config --global user.email you@example.com
                                <aside class="notes">
                                 </aside>
                                 </section> 
+                                </section> 
 
+
+				<section>
                                 <section>
                                     <h2>Lab 4: Jenkins: Build on Commit</h2>
                                     <ul>
@@ -495,6 +512,30 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                <aside class="notes">
                                 </aside>
                                 </section>
+
+
+                                <section>
+                                    <h2>Build on Commit vs build on Trunk</h2>
+                                    <p>Why is it important?</b>
+                               <aside class="notes">
+                                    Many small projects just build from trunk (master branch) or other designated branch.
+                                    However, this does not often scale when you have a large code base + a large team of developers.
+                                    It's difficult to determine who caused the breaking failure if you have a large number of changes and you only run a build once a day.
+                                    If you build on commit, you can quickly see what caused the breaking failure and back it out before other changes cascade on top of it.
+                                    If you don't have the infrastructure money to build on commit, you can build and run tests locally i.e. in your IDE before committing code to the canonical repo
+                                    However, this doesn't address integration 100% - having your code integrate with all the other code in the repo
+                                </aside>
+                                </section>
+
+
+                               <section>
+                                    <h2>Bisection, fix bustage or  backout</h2>
+                                    <p>Why is it important?</b>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+				</section>
  
 
                                 <section>
