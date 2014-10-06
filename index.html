@@ -207,7 +207,7 @@
 				        <li>Build, test, package, sign and deploy</li>
 					<li>mobile and desktop apps </li>
 					<li>operating systems</li>
-					<li>social media, banks, online retailers web sites....</li>
+					<li>social media, banks, online retailer's web sites....</li>
                                         <li>also on multiple platforms</li>
 					<ul>
                                         <li>Windows, Linux, Mac</li> 
@@ -508,7 +508,7 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                     <ul>
                                     </ul>
                                      <a class="image" href="images/jenkinscommit.png" target="_blank">
-                                     <img width="1448" height="499" src="images/jenkinscommit.png" alt="mozillareposcale"></a>
+                                     <img width="1448" height="499" src="images/jenkinscommit.png" alt="jenkinscommit"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
@@ -537,9 +537,83 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                <aside class="notes">
                                 </aside>
                                 </section>
-
 				</section>
  
+                                <section>
+                                <section>
+                                    <h2>Lab 5: Add more build steps</h2>
+                                    <ul>
+                                    <li>Select your build</li>
+				    <li>Go to <b>Configure</b></li>
+                                    <li>Under the <b>Build</b> heading, select <b>Add build step</b></li>
+                                    <li>Select <b>Execute shell</b></li>
+                                    </ul>
+                                    <a class="image" href="images/jenkinsscript.png" target="_blank">
+	                            <img width="1439" height="591" src="images/jenkinsscript.png" alt="jenkinscommit"></a>
+                               <aside class="notes">
+			            <p>The people who maintain the Python Jenkins API are really nice to includes a Jenkins script we can run to replicate their build</b>
+                                </aside>
+                                </section>
+
+
+                                <section>
+                                    <h2>Lab 5: Add more build steps</h2>
+                                    <ul>
+					    <li>Text to put in the <b>Command</b> box</li>
+				    </ul>
+                                    <pre><code data-trim contenteditable>
+chmod 755 $WORKSPACE/jenkins_build.sh
+$WORKSPACE/jenkins_build.sh
+                                    </code>
+                                    </pre>
+                                    <ul>
+					    <li>Select <b>Save</b></li>
+					    <li>Select <b>Build now</b></li>
+				    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                                 <section>
+                                    <h2>Lab 5: Look at  build output</h2>
+                                    <ul>
+                                            <li>What can you tell from the build output</li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+                                </section>
+
+
+                                <section>
+                                <section>
+                                    <h2>Lab 6: Branch your repo and build</h2>
+                                    <ul>
+                                            <li>Create a branch in your git repo</li>
+                                            <li>Select <b>Build now</b></li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+                                </section>
+
+                               <section>
+                                <section>
+                                    <h2>Challenge Exercises</h2>
+                                    <ul>
+                                            <li>Create a new build pipeline with a different open source project</li>
+                                            <ul>
+                                            <li>Examples...</li>
+                                            </ul>
+                                            <li>Query the REST API of an open source project and plot it's history </li>
+                                            <ul>
+                                            <li>Examples...</li>
+                                            </ul>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+                                </section>
 
                                 <section>
                                         <h2>Further Reading</h2>
@@ -551,8 +625,6 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                         <li><a href="http://techblog.netflix.com/">Netflix Tech Blog</a></li>
                                         <li><a href="http://planet.mozilla.org/releng/">Planet Release Engineering (Mozilla)</a></li>
                                         <li><a href="http://www.amazon.ca/Making-Software-Really-Works-Believe/dp/0596808321/ref=sr_1_1?ie=UTF8&qid=1410550091&sr=8-1&keywords=making+software">Making Software - edited by Greg Wilson </a></li>
-                                        <li><a href=http://www.amazon.ca/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=managing%20humans">Managing Humans by Michael Lopp</a></li>
-                                        <li><a href="http://www.amazon.ca/Being-Geek-Software-Developers-Handbook/dp/0596155409/ref=sr_1_1?ie=UTF8&qid=1410550065&sr=8-1&keywords=being+geek">Being Geek by Micheal Lopp</a></li>
 			                </ul></small>
                                 </section>
                                 <aside class="notes">
