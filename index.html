@@ -77,9 +77,9 @@
                                                 <li>Build from commit on Jenkins</li>
                                                 <li>Update build scripts to run real build</li>
                                                 <li>Run tests on Jenkins</li>
-                                                <li>Branch your repo and add new jobs</li>
                                                 <li>Add Jenkins Plugins</li>
                                                 <li>Create a pipeline by chaining some builds together</li>
+                                                <li>Branch your repo and add new jobs</li>
                                                 <li>Deploy Jenkins API</li>
                                                 <li>Query Jenkins REST API</li>
                                                 <li>Challenge Exercise</li>
@@ -569,19 +569,35 @@ $WORKSPACE/jenkins_build.sh
                                     <ul>
 					    <li>Select <b>Save</b></li>
 					    <li>Select <b>Build now</b></li>
+					    <li>What can you tell from the build output?</li>
 				    </ul>
                                <aside class="notes">
                                 </aside>
                                 </section>
 
                                  <section>
-                                    <h2>Lab 5: Look at  build output</h2>
+                                    <h2>Lab 5: Add Test Coverage report</h2>
                                     <ul>
-                                            <li>What can you tell from the build output</li>
+                                    <li>Under <b>Add post-build action</b></li>
+                                    <li>Select <b>Public JUnit test result report</b></li>
+                                    <li>Enter <b>nosetests.xml</b></li>
+				    <li>Enter <b>Save</b> and rerun your build</li>
                                     </ul>
+                                    <a class="image" href="images/jenkinsjunit.png" target="_blank">
+                                    <img width="1126" height="441" src="images/jenkinsjunit.png" alt="jenkinsjunit"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
+
+                                 <section>
+                                    <h2>Lab 5: Test Coverage report</h2>
+                                    <a class="image" href="images/jenkinstestsresults.png" target="_blank">
+                                    <img width="1010" height="539" src="images/jenkinstestresults.png" alt="jenkinstestresults"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+
                                 </section>
 
 
@@ -630,6 +646,11 @@ $WORKSPACE/jenkins_build.sh
                                 <aside class="notes">
                                        Release Engineering and Devops books and blogs to Read
                                 </aside>
+				
+				<section>
+				<h2>The end</h2>
+				<p>remaining slides are just reveal.js examples I'll remove</p>
+				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
