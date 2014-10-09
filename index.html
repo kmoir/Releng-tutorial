@@ -62,7 +62,6 @@
                                                 <li>Continuous Integration</li>
                                                 <li>Build and Test pipelines</li>
                                                 <li>Scaling your CI</li>
-                                                <li>Deployment pipelines</li>
                                                 <li>REST APIs</li>
                                                 <li>Further reading</li>
                                         </ol>
@@ -149,22 +148,60 @@
                                 </aside>
                                 </section>
 
+
+                               <section>
+                                   <h2>Examples of fun projects</h>
+                                </aside>
+                                <aside class="notes">
+                                     Show videos at this point? #todo
+                                </aside>
+                                </section>
+
                                 <section>
                                          <a class="image" href="images/relengsimple.png" target="_blank">
                                              <img width="867" height="550" src="images/relengsimple.png" alt="relengsimple">
                                         </a>
                                         <br><small><a href="http://oduinn.com/blog/2013/06/07/release-engineering-as-a-force-multiplier-relengcon-2013/">John O'Duinn's Mozilla release pipeline</a></br></small>
                                 <aside class="notes">
+				<p>
+				This is a picture of how the different parts of our build farm work together.  Developers land change on code repositories such as hg.mozilla.org.
+
+				As I mentioned before, we use an open source continuous integration engine called Buildbot.   We have over 50 buildbot masters.  Masters are segregated by function to runn tests, builds, scheduling, and try.  Test and build masters are further divided by function so we can limit the type of jobs they run and the types of slaves they serve.  For instance, a master may have Windows build slaves allocated to it.  Or Android test slaves.  This makes the masters more efficient because you don’t need to have every type of job loaded and consuming memory.  It also makes maintenance more efficient in that you can bring down for example, Android test masters for maintenance without having to touch other platforms.
+
+				Buildbot polls the hg push log for each of the code repositories. (Hgpoller)
+
+				When the poller detects a change, the information about the change is written into the scheduler database.  The buildbot scheduler masters are responsible for taking this request in the database and creating a new build request.  The build request then will appear as pending in the web page in the previous slide.
+
+				The jobs may be on existing hardware in our data centre, or new VMs may start or be created in the cloud to run these pending jobs.
+
+				When the job finishes, logs and artifacts are uploaded to FTP. The results appear on tbpl. Performance results are stored in the graphs database.
+
+				——
+				References
+				http://people.mozilla.org/~catlee/relengdocs/flows.html#firefox-builds-from-checkin-to-tbpl
+				http://oduinn.com/blog/2013/06/07/release-engineering-as-a-force-multiplier-relengcon-2013/
+				</p>
                                 </aside>
                                 </section>
 
                                 <section>
+                                         <a class="image" href="images/relengflows.png" target="_blank">
+                                             <img width="867" height="550" src="images/relengflows.png" alt="relengflows">
+                                        </a> 
+                                        <br><small><a href="https://wiki.mozilla.org/images/5/5b/Releng_flow_onepage.pdf">Selena Deckelman's diagram of Mozilla Release Engineering flows</a></br></small>
+                                <aside class="notes">
+				    This is a more complicated picture of how the the release engineering pipeline at Mozilla works.  As you can see, it's rereally a large distributed system. Implementing changes on it is quite complex.
+                                </aside>
+                                </section>
+
+
+                                 <section>
                                         <h2>Role of the Release Engineer</h2>
                                         <ul>
                                         <li>Focus on writing code to build a pipeline versus a product</li>
                                         <ul>
                                         <li>scope depends on where you work</li>
-                                        <li>scale depends on</li> 
+                                        <li>scale depends on</li>
                                         <ul>
                                         <li>number of products</li>
                                         <li>number of platforms x supported versions</li>
@@ -181,23 +218,13 @@
 
 
                                 <section>
-                                         <a class="image" href="images/relengflows.png" target="_blank">
-                                             <img width="867" height="550" src="images/relengflows.png" alt="relengflows">
-                                        </a> 
-                                        <br><small><a href="https://wiki.mozilla.org/images/5/5b/Releng_flow_onepage.pdf">Selena Deckelman's diagram of Mozilla Release Engineering flows</a></br></small>
-                                <aside class="notes">
-                                </aside>
-                                </section>
-
-
-                                <section>
                                 <h2>Why is it important?</h2>
                                 <a class="image" href="images/sourcecode.png" target="_blank">
                                      <img width="541" height="463" src="images/sourcecode.png" alt="Mozilla">
                                 </a>
-                                <br><small><a href="https://hg.mozilla.org/mozilla-central/file/2ae57957e4bb/mobile/android/search/java/org/mozilla/search/SearchPreferenceActivity.java">Firefox for Android source code</a></br></small>
+                                <br><small><a href="https://hg.mozilla.org/mozilla-central/file/2ae57957e4bb/mobile/android/search/java/org/mozilla/search/SearchPreferenceActivity.java">some Firefox for Android source code</a></br></small>
                                 <aside class="notes">
-                                        <p>Consumers don't appreciate source code</p>
+                                        <p>Consumers don't appreciate a wad of untested source code</p>
                                 </aside>
                                 </section>
 
@@ -228,17 +255,17 @@
                                         <a class="image" href="images/chef.png" target="_blank">
                                      <img width="92" height="107" src="images/chef.png" alt="chef"></a>
                                <aside class="notes">
-                                      <p>Puppet, Chef, Ansible, Docker</p>
+                                      <p>Puppet, Chef, Ansible, Docker.  We have several thousand devices in our buildfarm at Mozilla. We need to management them at Scale.  For many of our devices we use Puppet to configure them automatically i.e. install a new package, change a file, configure a new platform</p>
                                </aside> 
                                </section>
 
                                <section>
                                       <h2>Build, Test and Release Automation</h2>
                                      <a class="image" href="images/5982549938_ebee95dff1_z.jpg" target="_blank">
-                                     <img width="640" height="427" src="images/5982549938_ebee95dff1_z.jpg" alt="mozillareposcale"></a>
+                                     <img width="640" height="427" src="images/5982549938_ebee95dff1_z.jpg" alt="gears"></a>
 			     <br><small><a href="https://www.flickr.com/photos/freefoto/5982549938/sizes/z/">© Ian Britton</a>, Creative Commons by-nc-sa 2.0</br></small>
                                <aside class="notes">
-                                      <p>Automate all the things - xckd comic</p>
+                                      <p>Automate all the things</p>
                                </aside>
                                </section>
 
@@ -330,18 +357,26 @@
                                      </ul>
                                 </section>
 
-
-
+                                <section>
                                 <section>
                                     <h2>Lab 1: Using your AWS instance</h2>
                                      <p>Goal: Login to your AWS instance via ssh.  Query the packages that are available on it </li>
                                      <ul>
                                      <li>AWS = Amazon web services</li>
                                      <li>Shared cloud resources</li>
-                                     <li>Different instance types - different resources - memory, disk, CPU</li>
+                                     <li><a href="http://aws.amazon.com/ec2/instance-types/">Different instance types</a> - different resources - memory, disk, CPU</li>
+                                     <li>We are using a m3.medium instance type</li>
                                      </ul>
                                 </section>  
 
+                                 <section>
+                                    <h2>Lab 1: Login to your instance</h2>
+                                     <ul>
+                                     <li>ssh -l <username> <hostname></li>
+                                     <li>dpkg-query #todo </li>
+                                     </ul>
+                                </section>
+                                </section>
 
 				<section>
                                 <section>
@@ -393,6 +428,23 @@ git config --global user.email you@example.com
 				</section>
 
 			       <section>
+			       <section>
+                                    <h2>Continuous Integration</h2>
+                                    <ul>
+                                    <li>Component based build</li>
+                                    <li>Everything in a source repo - build and test scripts too</li>
+                                    <li>Automate all the things: Build, test, deployment, update</li>
+                                    <li>Build on commit</li>
+                                    <li>Team Culture: Fix problems as they arise</li>
+                                    <li><a href="http://www.infoq.com/research/ci-servers">Examples of common servers</a></li>
+                                    </ul>
+                                    <aside class="notes">
+                                    <p>some are opensource, some are commercial. i.e. Jenkins, Hudson, Travis from GitHub, Buildbot, Bamboo from Atlassian</p>
+                                    </aside>
+			       </section>
+
+
+
                                <section>
                                     <h2>Lab 3: Jenkins</h2>
                                     <ul>
@@ -454,7 +506,7 @@ git config --global user.email you@example.com
                                 </section>
 
                                <section>
-                                    <h2>Lab 3: Jenkins: Look at Output</h2>
+                                    <h2>Lab 3: Jenkins: Build Results</h2>
                                     <ul>
                                     <li>When the build finishes, look <b>Console Ouput</b> to see the output</li>
                                     </ul>
@@ -596,8 +648,6 @@ $WORKSPACE/jenkins_build.sh
                                <aside class="notes">
                                 </aside>
                                 </section>
-
-
                                 </section>
 
 
