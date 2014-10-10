@@ -73,13 +73,10 @@
                                                 <li>Using your AWS Instance and Git</li>
                                                 <li>Setup a build on Jenkins</li>
                                                 <li>Build from commit on Jenkins</li>
-                                                <li>Update build scripts to run real build</li>
-                                                <li>Run tests on Jenkins</li>
-                                                <li>Split tests into a separate build</li>
+                                                <li>Update build to run real build</li>
+                                                <li>Add test results report</li>
                                                 <li>Add Jenkins Plugins</li>
                                                 <li>Create a pipeline by chaining some builds together</li>
-                                                <li>Branch your repo and add new jobs</li>
-                                                <li>Deploy Jenkins API</li>
                                                 <li>Query Jenkins REST API</li>
                                                 <li>Challenge Exercise</li>
                                         </ol>
@@ -145,15 +142,6 @@
                                          <a class="image" href="images/stubbornella.png" target="_blank">
                                          <img width="625" height="282" src="images/stubbornella.png" alt="pipeline"></a>
                                 <aside class="notes">
-                                </aside>
-                                </section>
-
-
-                               <section>
-                                   <h2>Examples of fun projects</h>
-                                </aside>
-                                <aside class="notes">
-                                     Show videos at this point? #todo
                                 </aside>
                                 </section>
 
@@ -304,8 +292,8 @@
                                         <h2>Package and Dependency Management</h2>
                                         <a class="image" href="images/dependencies.png" target="_blank">
                                      <img width="579" height="158" src="images/dependencies.png" alt="mozillareposcale"></a>
+			     <br><small><a href="http://imgs.xkcd.com/comics/dependencies.png">© xkcd - Dependencies - Randall Munroe</a></br></small>
                                <aside class="notes">
-			     <br><small><a href="http://imgs.xkcd.com/comics/dependencies.png">© Randall Munroe</a></br></small>
                                    artifactory, maven repos, p2 repos, pypi, custom rpms, different languages or operating systems have different package management systems and thus different ways of managing dependencies i.e. pip, apt-get, java jars. And there are also different types of deployment artifacts
                                </aside>
                                </section>
@@ -349,10 +337,7 @@
                                      <p></li>
                                      <ul>
                                      <li>Setup a simple build pipeline using Jenkins on AWS</li>
-                                     <li>Setup builds for different branches</li>
-                                     <li>Setup tests</li>
                                      <li>Install additional Jenkins plugins</li>
-                                     <li>Deploy your build</li>
                                      <li>Query Jenkins build status using REST API</li>
                                      </ul>
                                 </section>
@@ -634,10 +619,10 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                  <section>
-                                    <h2>Lab 5: Add Test Coverage report</h2>
+                                    <h2>Lab 5: Add Test Results report</h2>
                                     <ul>
                                     <li>Under <b>Add post-build action</b></li>
-                                    <li>Select <b>Public JUnit test result report</b></li>
+                                    <li>Select <b>Publish JUnit test result report</b></li>
                                     <li>Enter <b>nosetests.xml</b></li>
 				    <li>Enter <b>Save</b> and rerun your build</li>
                                     </ul>
@@ -648,7 +633,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                  <section>
-                                    <h2>Lab 5: Test Coverage report</h2>
+                                    <h2>Lab 5: Test Results report</h2>
                                     <a class="image" href="images/jenkinstestsresults.png" target="_blank">
                                     <img width="1010" height="539" src="images/jenkinstestresults.png" alt="jenkinstestresults"></a>
                                <aside class="notes">
@@ -666,27 +651,93 @@ $WORKSPACE/jenkins_build.sh
                                             <li>Select the <b>Available</b> tab</li>
                                             <li>Check the <b>Build Pipeline</b> plugin</li>
                                             <li>Select <b>install</b> plugin</li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+				<section>
+                                    <h2>Lab 6: Restart Jenkins to enable new plugins</h2>
+                                    <ul>
                                             <li>Select <b>Download now and install after restart</b></li>
+                                            <li>Wait for the plugin to install</b></li>
                                             <li>Goto <b>http://your_jenkins_server/restart</b></li>
                                     </ul>
+                                    <a class="image" href="images/jenkinstestspipeline.png" target="_blank">
+                                    <img width="1125" height="427" src="images/jenkinspipeline.png" alt="jenkinstestresults"></a>
                                <aside class="notes">
-			           #todo add image
                                 </aside>
                                 </section>
-                                </section>
-
 
                                 <section>
-                                <section>
-                                    <h2>Lab 7: Branch your repo and build</h2>
+                                    <h2>Lab 6: Add a new build pipeline view</h2>
                                     <ul>
-                                            <li>Create a branch in your git repo</li>
-                                            <li>Select <b>Build now</b></li>
+					    <li>On the views, select <b>+</b> to add a new view</li>
+                                            <li>Select <b>Build Pipeline View</b></li>
+                                            <li>Enter <b>Build Pipeline</b> for the name</li>
+					    <li>The defaults are okay, select <b>Save</b></li>
                                     </ul>
-                               <aside class="notes">
-                                </aside>
+                                    <a class="image" href="images/jenkinsview.png" target="_blank">
+                                    <img width="1133" height="469" src="images/jenkinsview.png" alt="jenkinsnewview"></a>
+				</section>
+
+
+                               <section>
+                                    <h2>Lab 6: Look at build pipeline view</h2>
+                                    <ul>
+                                    </ul>
+                                    <a class="image" href="images/jenkinspview.png" target="_blank">
+                                    <img width="1113" height="390" src="images/jenkinspview.png" alt="jenkinspipelineview"></a>
                                 </section>
+
+
+                                <section>
+                                    <h2>Lab 6: Add two new build jobs</h2>
+                                    <ul>
+                                    <li>Select <b>New Item</b> on left side of screen</li>
+                                    <li>In <b>Item name</b> give your job a name like <i>Performance1</i></li>
+                                    <li>Select <b>Freestyle project</b> and select <b>OK</b></li>
+                                    <li>Add <b>Build step</b> and select <b>Execute Shell</b></li>
+                                    <li>echo "$JOB_NAME is running"</li>
+                                    <li>Select <b>Save</b></li>
+                                    <li>Repeat these same steps for a job called <b>Deploy1</b></li>
+                                    </ul>
                                 </section>
+
+                                <section>
+                                    <h2>Lab 6: Configure chained builds</h2>
+                                    <ul>
+                                    <li>On the Jenkins dashboard select <b>build1</b> and then <b>configure</b></li>
+                                    <li>Select <b>Add post-build action</b></li>
+                                    <li>Select <b>Trigger parameterized build on other projects</b></li>
+                                    <li>Select <b>Projects to build</b> and select <b>performance1</b></li>
+                                    <li>Select <b>Add Parameters</b></li>
+                                    <li>Select <b>Current build parameters</b></li>
+                                    <li>Select <b>Save</b></li>
+                                    <li>Repeat these same steps so the performance build triggers the deployment build</li>
+                                    </ul>
+                                </section>
+
+                                <section>
+                                    <h2>Lab 6: Configure chained builds (2)</h2>
+                                    <ul>
+                                    <li>Repeat these same steps so the performance build triggers the deployment build</li>
+                                    </ul>
+                                    <a class="image" href="images/jenkinschain.png" target="_blank">
+                                    <img width="876" height="471" src="images/jenkinschain.png" alt="jenkinschain"></a>
+                                </section>
+
+                                <section>
+                                    <h2>Lab 6: Run builds and look at pipeline view</h2>
+                                    <ul>
+                                    <li>Run the performance and deploy tests (to save time) or build1 if you want</li>
+                                    <li>Look at the pipeline view</li>
+                                    <li></li>
+                                    </ul>
+                                </section>
+
+                                </section>
+
 
                                <section>
                                 <section>
