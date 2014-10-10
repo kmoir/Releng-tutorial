@@ -70,12 +70,12 @@
                                 <section>
                                         <h2>Outline - Labs</h2>
                                         <ol>
-                                                <li>Using your AWS Instance</li>
-                                                <li>Git</li>
+                                                <li>Using your AWS Instance and Git</li>
                                                 <li>Setup a build on Jenkins</li>
                                                 <li>Build from commit on Jenkins</li>
                                                 <li>Update build scripts to run real build</li>
                                                 <li>Run tests on Jenkins</li>
+                                                <li>Split tests into a separate build</li>
                                                 <li>Add Jenkins Plugins</li>
                                                 <li>Create a pipeline by chaining some builds together</li>
                                                 <li>Branch your repo and add new jobs</li>
@@ -365,22 +365,29 @@
                                      <li>AWS = Amazon web services</li>
                                      <li>Shared cloud resources</li>
                                      <li><a href="http://aws.amazon.com/ec2/instance-types/">Different instance types</a> - different resources - memory, disk, CPU</li>
-                                     <li>We are using a m3.medium instance type</li>
+                                     <li>We are using a m3.medium instance type running Ubuntu 14.04</li>
                                      </ul>
+                               <aside class="notes">
+			            mention other cloud services Azure, IBM etc 
+                               </aside>
                                 </section>  
 
                                  <section>
                                     <h2>Lab 1: Login to your instance</h2>
                                      <ul>
                                      <li>ssh -l <username> <hostname></li>
-                                     <li>dpkg-query #todo </li>
+				     <li><i>if needed, you can sudo - root</i></li>
+                                     <li>look at packages installed</li>
                                      </ul>
-                                </section>
+				     <pre>
+dpkg | more 
+dpkg -l | grep jenkins
+				     </pre>
+
                                 </section>
 
-				<section>
                                 <section>
-                                    <h2>Lab 2: Git</h2>
+                                    <h2>Lab 1: Git</h2>
 				     <ul>
                                      <li>Git is a distributed version control system</li>
                                      <li>Git Design Goals: fast, secure, distributed</li>
@@ -390,7 +397,7 @@
                                 </section>  
 
                                  <section>
-                                    <h2>Lab 2: Git - quick command guide</h2>
+                                    <h2>Lab 1: Git - quick command guide</h2>
                                      <pre>
 git clone repo_name           #clone a repository locally
 cd repo_name        
@@ -409,7 +416,7 @@ git checkout -b v2            #create new local branch
 
 
                               <section>
-                                    <h2>Lab 2: Git exercise</h2>
+                                    <h2>Lab 1: Git exercise</h2>
                                      <pre>
 cd /home/ubuntu
 git clone https://github.com/salimfadhley/jenkinsapi     
@@ -431,12 +438,11 @@ git config --global user.email you@example.com
 			       <section>
                                     <h2>Continuous Integration</h2>
                                     <ul>
-                                    <li>Component based build</li>
                                     <li>Everything in a source repo - build and test scripts too</li>
                                     <li>Automate all the things: Build, test, deployment, update</li>
                                     <li>Build on commit</li>
                                     <li>Team Culture: Fix problems as they arise</li>
-                                    <li><a href="http://www.infoq.com/research/ci-servers">Examples of common servers</a></li>
+				    <li><a href="http://www.infoq.com/research/ci-servers">Popular CI servers</a></li>
                                     </ul>
                                     <aside class="notes">
                                     <p>some are opensource, some are commercial. i.e. Jenkins, Hudson, Travis from GitHub, Buildbot, Bamboo from Atlassian</p>
@@ -581,7 +587,7 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
 
 
                                <section>
-                                    <h2>Bisect, fix bustage or  backout</h2>
+                                    <h2>Bisect, fix bustage or backout</h2>
 				    <ul>
 				    <li>Use tools such as <a=href="http://git-scm.com/book/en/Git-Tools-Debugging-with-Git">git bisect</a> to identify the offending commit</li>
 				    <li>Backout the change set or fix the code</li>
@@ -650,10 +656,26 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
                                 </section>
 
+                                <section>
+                                <section>
+                                    <h2>Lab 6: Add some plugins</h2>
+                                    <ul>
+                                            <li>On the left hand side select <b>Manage Jenkins</b></li>
+                                            <li>Select <b>Manage Plugins</b></li>
+                                            <li>You'll see a list of available plugins<b></b></li>
+                                            <li>Select the <b>Available</b> tab</li>
+                                            <li>Check the <b>Build Pipeline</b> plugin</li>
+                                            <li>Select <b>install</b> plugin</li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+                                </section>
+
 
                                 <section>
                                 <section>
-                                    <h2>Lab 6: Branch your repo and build</h2>
+                                    <h2>Lab 7: Branch your repo and build</h2>
                                     <ul>
                                             <li>Create a branch in your git repo</li>
                                             <li>Select <b>Build now</b></li>
