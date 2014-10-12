@@ -73,7 +73,7 @@
                                                 <li>Using your AWS Instance and Git</li>
                                                 <li>Setup a build on Jenkins</li>
                                                 <li>Build from commit on Jenkins</li>
-                                                <li>Update build to run real build</li>
+                                                <li>Invoke build and test scripts</li>
                                                 <li>Add test results report</li>
                                                 <li>Add Jenkins Plugins</li>
                                                 <li>Create a pipeline by chaining some builds together</li>
@@ -138,6 +138,93 @@
                                 </section> 
 
 
+                              <section>
+                                        <h2>Role of the Release Engineer</h2>
+                                        <ul>
+                                        <li>Focus on writing code to build a pipeline versus a product</li>
+                                        <ul>
+                                        <li>scope depends on where you work</li>
+                                        <li>scale depends on</li>
+                                        <ul>
+                                        <li>number of products</li>
+                                        <li>number of platforms x supported versions</li>
+                                        <li>number of tests</li>
+                                        <li>number of commits</li>
+                                        <li>release cadence</li>
+                                        </ul>
+                                        </ul>
+                                        </ul>
+                                <aside class="notes">
+                                               Why can't it be just a regular developer doing this job?  Sometimes it is.  However, developers get very attached to their code and want to push new features despite them lacking stability. 
+                                </aside>
+                                </section>
+ 
+                                <section>
+                                        <h2>Committing code is only the first step</h2>
+                                        <ul>
+                                        <li>Build, test, package, sign and deploy</li>
+                                        <li>mobile and desktop apps </li>
+                                        <li>operating systems</li>
+                                        <li>social media, banks, online retailer's web sites....</li>
+                                        <li>on multiple platforms</li>
+                                        <ul>
+                                        <li>Desktop:Windows, Linux, Mac...</li>
+                                        <li>Mobile: Android, IOS, FirefoxOS, Blackberry...</li>
+                                        <li>Other: Trains, planes, cars, and drones...</li>
+                                        </ul>
+                                <aside class="notes">
+                                     <p>Websites such as Google, Facebook, Twitter</p>
+                                </aside>
+                                </section>
+
+                                <section>
+                                     <h2>if software then releng</h2>
+                                     <ul>
+                                     <li>Akamai, Facebook, Google, LinkedIn, Twitter, Amazon</li>
+                                     <li>Tasktop, Oracle, IBM, RedHat </li>
+                                     <li>Open Source communties like</li>
+                                     <ul>
+                                     <li>Linux, Apache, Mozilla, Eclipse, Gentoo</li>
+                                     </ul>
+                                     <li>To do: replace with images</li>
+                                     </ul>
+                                <aside class="notes">
+                                     <p>Where do we work?</p>
+                                </section>
+
+
+                                <section>
+                                    <h2>Release Engineering Focus</h2>
+                                    <ul>
+                                    <li><b>Schedule</b></li> 
+                                    <li><b>Quality</b></li> 
+                                    <li><strike>Features</strike></li> 
+				    <li>= shipping quality products on time</li> 
+                                    <ul>
+                                <aside class="notes">
+                                     <p>Release engineers are not emotionally attached to the features in a product. Their focus is on building the pipeline that allows them to ship products on time. A software developer in a more traditional role may have invested months working a a new feature in a product.  But if this new feature is not of sufficient quality to be included in the current release, it should not be included.  Release management or release engineering may make this decision, depending on where you work.
+</p>
+                                </section>
+
+                                <section>
+                                        <h2>Releng as a Force multiplier</h2>
+                                        <ul>
+                                        <li>Optimize the pipeline</li>
+                                        <li>Make the development team as a whole more effective</li>
+                                        <ul>
+                                        <li>Reduce the end to end build time by 50%?</li>
+                                        <li>Scale testing in the cloud to reduce wait times?</li>
+                                        <li>Ship a release in a day?</li>
+                                        <li>Patch maintenance releases for a critical customer fix?</li>
+                                        </ul>
+                                        </ul>
+                                <aside class="notes">
+                                      <p>John O'Duinn, gave a talk a couple of years ago about called release engineering as a force multiplier.  It describes in 
+                                      detail how the changes in Mozilla release engineering make the development team as a whole more effective.
+                                   </p> 
+                                </aside>
+                                </section>
+
                                 <section>
                                          <a class="image" href="images/stubbornella.png" target="_blank">
                                          <img width="625" height="282" src="images/stubbornella.png" alt="pipeline"></a>
@@ -179,59 +266,6 @@
                                         <br><small><a href="https://wiki.mozilla.org/images/5/5b/Releng_flow_onepage.pdf">Selena Deckelman's diagram of Mozilla Release Engineering flows</a></br></small>
                                 <aside class="notes">
 				    This is a more complicated picture of how the the release engineering pipeline at Mozilla works.  As you can see, it's rereally a large distributed system. Implementing changes on it is quite complex.
-                                </aside>
-                                </section>
-
-
-                                 <section>
-                                        <h2>Role of the Release Engineer</h2>
-                                        <ul>
-                                        <li>Focus on writing code to build a pipeline versus a product</li>
-                                        <ul>
-                                        <li>scope depends on where you work</li>
-                                        <li>scale depends on</li>
-                                        <ul>
-                                        <li>number of products</li>
-                                        <li>number of platforms x supported versions</li>
-                                        <li>number of tests</li>
-                                        <li>number of commits</li>
-                                        <li>release cadence</li>
-                                        </ul>
-                                        </ul>
-                                        </ul>
-                                <aside class="notes">
-                                               Why can't it be just a regular developer doing this job?  Sometimes it is.  However, developers get very attached to their code and want to push new features despite them lacking stability.  Release engineers are not emotionally attached to the feature, their focus is on building the pipeline that allows them to ship.
-                                </aside>
-                                </section>
-
-
-                                <section>
-                                <h2>Why is it important?</h2>
-                                <a class="image" href="images/sourcecode.png" target="_blank">
-                                     <img width="541" height="463" src="images/sourcecode.png" alt="Mozilla">
-                                </a>
-                                <br><small><a href="https://hg.mozilla.org/mozilla-central/file/2ae57957e4bb/mobile/android/search/java/org/mozilla/search/SearchPreferenceActivity.java">some Firefox for Android source code</a></br></small>
-                                <aside class="notes">
-                                        <p>Consumers don't appreciate a wad of untested source code</p>
-                                </aside>
-                                </section>
-
-                                <section>
-                                        <h2>Committing code is only the first step</h2>
-					<ul>
-				        <li>Build, test, package, sign and deploy</li>
-					<li>mobile and desktop apps </li>
-					<li>operating systems</li>
-					<li>social media, banks, online retailer's web sites....</li>
-                                        <li>also on multiple platforms</li>
-					<ul>
-                                        <li>Windows, Linux, Mac</li> 
-                                        <li>Mobile: Android, IOS, Blackberry, FirefoxOS</li>
-					</ul>
-                                        <li>Optimize the pipeline to make developers more productive</li>
-				        </ul>
-                                <aside class="notes">
-				     <p>Websites such as Google, Facebook, Twitter</p>
                                 </aside>
                                 </section>
 
@@ -301,11 +335,13 @@
                               <section>
                                         <h2>Testing and Quality Assurance</h2>
                                         <ul>
-                                        <li>Test harnesses</li>
                                         <li>Porting tests to new platforms</li>
+                                        <li>Writing Test harnesses</li>
+					<ul>
                                         <li>Unit tests</li>
                                         <li>Performance tests</li>
                                         <li>Regression testing</li>
+					<ul>
                                         </ul>
                                <aside class="notes">
                                </aside>
@@ -406,8 +442,10 @@ git checkout -b v2            #create new local branch
 cd /home/ubuntu
 git clone https://github.com/salimfadhley/jenkinsapi     
 cd jenkinsapi
-git status
+git branch 
+git tag
 git log
+git status 
 git config --global user.name "Your Name"
 git config --global user.email you@example.com
                                      </pre>
@@ -515,7 +553,7 @@ git config --global user.email you@example.com
                                     <ul>
                                     <li>Select <b>Configure</b></li>
                                     <li>Select <b>Poll SCM</b></li>
-                                    <li>Under <b>Schedule </b> enter <b>H/2 * * * *</b> to poll Git every two minutes</li>
+                                    <li>Under <b>Schedule </b> enter <b>H/2 * * * *</b> to poll git every two minutes</li>
                                     </ul>
                                         <a class="image" href="images/jenkinsgit.png" target="_blank">
                                      <img width="722" height="447" src="images/jenkinsgit.png" alt="mozillareposcale"></a>
@@ -735,8 +773,19 @@ $WORKSPACE/jenkins_build.sh
                                     <img width="867" height="334" src="images/jenkinschain.png" alt="jenkinspipe"></a>
                                     </ul>
                                 </section>
-
                                 </section>
+
+                                <section>
+                                <section>
+                                    <h2>Lab 7: REST APIs</h2>
+                                    <ul>
+                                            <li></li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+                                </section>
+
 
 
                                <section>
