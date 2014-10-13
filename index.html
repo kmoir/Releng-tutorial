@@ -76,7 +76,7 @@
                                                 <li>Invoke build and test scripts</li>
                                                 <li>Add test results report</li>
                                                 <li>Add Jenkins Plugins</li>
-                                                <li>Create a pipeline by chaining some builds together</li>
+                                                <li>Create a pipeline by chaining jobs together</li>
                                                 <li>Query Jenkins REST API</li>
                                                 <li>Challenge Exercise</li>
                                         </ol>
@@ -103,6 +103,12 @@
                                         <h2>About: you</h2>
                                         <h2>?</h2>
                                 </section>
+				<aside class="notes">
+				    How many of you have worked on a developent team before?
+				    What open source tools do you use? Git? Eclipse? 
+				    What languages to you write code in? Java? Ruby? Python? C++? JavaScript?
+				    How many of you plan to work in indusry when you graduate?
+				</aside>
 				</section>
 				
                                 <section>
@@ -164,8 +170,7 @@
                                         <ul>
                                         <li>Build, test, package, sign and deploy</li>
                                         <li>mobile and desktop apps </li>
-                                        <li>operating systems</li>
-                                        <li>social media, banks, online retailer's web sites....</li>
+                                        <li>social media, banks, web sites for online retailer...</li>
                                         <li>on multiple platforms</li>
                                         <ul>
                                         <li>Desktop:Windows, Linux, Mac...</li>
@@ -187,7 +192,7 @@
                                      <li>QNX, Hortonworks, Shopify, Puppet</li>
                                      <li>Open Source communties like</li>
                                      <ul>
-                                     <li>Linux, Apache, Mozilla, Eclipse, Gentoo</li>
+                                     <li>Linux, Apache, Mozilla, Eclipse, Gentoo, Debian</li>
                                      </ul>
                                      <li>To do: replace with images</li>
                                      </ul>
@@ -234,6 +239,41 @@
                                 <aside class="notes">
                                 </aside>
                                 </section>
+
+                                <section>
+                                     <h2>Scale</h2>
+                                     <ul>
+                                     <li>At Mozilla we run about 4k build jobs and 10k test jobs a day</li>
+                                     <li>80% of builds and 50% of tests run on cloud instances</li>
+                                     <li>Build farm consists of 6000 devices</li>
+                                     <li>Scaling isues are fun!</li>
+                                     </ul>
+                                <aside class="notes">
+                                </aside>
+                                </section>
+
+                                <section>
+                                     <h2>Tools</h2>
+                                     <a class="image" href="images/python.png" target="_blank">
+	                             <img width="262" height="85" src="images/python.png" alt="puppet"></a>
+                                     <a class="image" href="images/buildbot.jpg" target="_blank">
+	                             <img width="259" height="83" src="images/buildbot.jpg" alt="puppet"></a>
+                                     <a class="image" href="images/puppet.png" target="_blank">
+	                             <img width="185" height="82" src="images/puppet.png" alt="puppet"></a>
+                                     <a class="image" href="images/jenkins.png" target="_blank">
+	                             <img width="254" height="121" src="images/jenkins.png" alt="puppet"></a>
+                                     <a class="image" href="images/git.jpg" target="_blank">
+	                             <img width="134" height="62" src="images/git.jpg" alt="puppet"></a>
+                                     <a class="image" href="images/AWSb.jpg" target="_blank">
+	                             <img width="186" height="74" src="images/AWS.jpg" alt="puppet"></a>
+                                     <a class="image" href="images/mecurial.jpg" target="_blank">
+	                             <img width="158" height="44" src="images/mercurial.jpg" alt="puppet"></a>
+                                     <a class="image" href="images/docker.png" target="_blank">
+	                             <img width="177" height="56" src="images/docker.png" alt="puppet"></a>
+                                <aside class="notes">
+                                </aside>
+                                </section> 
+
 
                                 <section>
                                          <a class="image" href="images/relengsimple.png" target="_blank">
@@ -399,7 +439,7 @@
                                  <section>
                                     <h2>Lab 1: Login to your instance</h2>
                                      <ul>
-                                     <li>ssh -l <username> <hostname></li>
+					     <li>ssh -l <i>username hostname</i></li>
 				     <li><i>if needed, you can sudo - root</i></li>
                                      <li>look at packages installed</li>
                                      </ul>
@@ -431,7 +471,7 @@ git status                    #see the status of the git repository
 git commit -a -m "a comment"   #commit the change to the local repository
 git push                      #push the change to the remote repository
 git branch                    #show current branch
-git checkout -b v2            #create new local branch
+git checkout -b branch2       #create new local branch
 				     </pre>
                                 <aside class="notes">
                                       You can use Git within an IDE if you want, but these are the command line arguments 
@@ -464,8 +504,8 @@ git config --global user.email you@example.com
 			       <section>
                                     <h2>Continuous Integration</h2>
                                     <ul>
-                                    <li>Everything in a source repo - build and test scripts too</li>
-                                    <li>Automate all the things: Build, test, deployment, update</li>
+                                    <li>Everything in version control - build, test and deployment  scripts</li>
+                                    <li>Automate all the things: Build, test, deployment, update process</li>
                                     <li>Build on commit</li>
                                     <li>Team Culture: Fix problems as they arise</li>
 				    <li><a href="http://www.infoq.com/research/ci-servers">Popular CI servers</a></li>
@@ -597,7 +637,6 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                 </aside>
                                 </section>
 
-
                                 <section>
                                     <h2>Build on Commit vs build on Trunk</h2>
                                     <p>Why is it important?</b>
@@ -680,6 +719,17 @@ $WORKSPACE/jenkins_build.sh
                                <aside class="notes">
                                 </aside>
                                 </section>
+                               <section>
+                                    <h2>Lab 4: Bonus labs</h2>
+                                    <ul>
+                                    <li>Write a script to generate commits to the file</li>
+                                    <li>Add additonal excecutors to the Jenkins install</li>
+                                    <li>Look at the number of queued jobs</li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+ 
                                 </section>
 
                                 <section>
@@ -818,6 +868,7 @@ $WORKSPACE/jenkins_build.sh
                                         <li><a href="http://codeascraft.com/">Code as Craft (Etsy Tech blog)</a></li>
                                         <li><a href="http://techblog.netflix.com/">Netflix Tech Blog</a></li>
                                         <li><a href="http://planet.mozilla.org/releng/">Planet Release Engineering (Mozilla)</a></li>
+                                        <li><a href="https://wiki.mozilla.org/ReleaseEngineering/Contribute">Contributing to Mozilla Release Engineering</a></li>
                                         <li><a href="http://www.amazon.ca/Making-Software-Really-Works-Believe/dp/0596808321/ref=sr_1_1?ie=UTF8&qid=1410550091&sr=8-1&keywords=making+software">Making Software - edited by Greg Wilson </a></li>
 			                </ul></small>
                                 </section>

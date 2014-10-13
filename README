@@ -1,3 +1,17 @@
 This repo contains the slides/labs for the October 2014 PLOW lecture on release engineering in Montreal. 
 
 http://polymorse.polymtl.ca/plow/
+
+To look at the presentation
+
+git clone git@github.com:kmoir/Releng-tutorial.git
+Open the file://your_repositor_path/index.html 
+
+
+To install the presentation and see the speaker notes:
+git clone git@github.com:kmoir/Releng-tutorial.git
+cd Releng-tutorial
+install node.js from http://nodejs.org/
+sudo npm install
+sudo npm install grunt
+grunt serve
