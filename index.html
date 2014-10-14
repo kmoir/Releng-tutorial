@@ -99,6 +99,14 @@
 					</aside>
 				</section>
 
+                                <section>
+					<h2>Mozilla Releng Worldwide</h2>
+                                         <a class="image" href="images/remoties..png" target="_blank">
+                                         <img width="1160" height="722" src="images/remoties.png" alt="pipeline"></a>
+                                <aside class="notes">
+                                </aside>
+                                </section>
+
                                <section>
                                         <h2>About: you</h2>
                                         <h2>?</h2>
@@ -202,6 +210,13 @@
 
 
                                 <section>
+                                        <p><a href="https://www.usenix.org/conference/ures14/technical-sessions/presentation/moving-mobile">Chuck Rossi, release engineering, Facebook</a>
+                               <aside class="notes">
+                               </aside>
+                                 <p>start 1:38 end 5:30</p>
+                               </section>
+
+                                <section>
                                     <h2>Release Engineering Focus</h2>
                                     <ul>
                                     <li><b>Schedule</b></li> 
@@ -251,6 +266,14 @@
                                 <aside class="notes">
                                 </aside>
                                 </section>
+
+                                <section>
+                                        <a class="image" href="images/panda.jpg" target="_blank">
+                                        <img width="670" height="933" src="images/panda.jpg" alt="pandas"></a>
+                                <aside class="notes">
+                                </aside>
+                                </section>
+
 
                                 <section>
                                      <h2>Tools</h2>
@@ -366,6 +389,15 @@
                                </section>
 
                                <section>
+                                        <h2>Branching Strategies</h2>
+                                        <a class="image" href="images/trains.jpg" target="_blank">
+                                     <img width="698" height="384" src="images/trains.jpg" alt="trains"></a>
+                               <aside class="notes">
+                               </aside>
+                               </section>
+
+
+                               <section>
                                         <h2>Package and Dependency Management</h2>
                                         <a class="image" href="images/dependencies.png" target="_blank">
                                      <img width="579" height="158" src="images/dependencies.png" alt="mozillareposcale"></a>
@@ -374,6 +406,15 @@
                                    artifactory, maven repos, p2 repos, pypi, custom rpms, different languages or operating systems have different package management systems and thus different ways of managing dependencies i.e. pip, apt-get, java jars. And there are also different types of deployment artifacts
                                </aside>
                                </section>
+
+                               <section>
+                                   <h2>Going from 3 week to Daily releases</h2 >
+                                    <p><a href="https://www.usenix.org/conference/ures14/technical-sessions/presentation/going-3-week-daily-releases-netflix">Daniel Zapata, software engineer, Netflix  </a>
+                               <aside class="notes">
+                               </aside>
+                                     <p>0:44-3:15</p>
+                               </section> 
+
 
                               <section>
                                         <h2>Testing and Quality Assurance</h2>
@@ -391,25 +432,10 @@
                                </section>
 
                                <section>
-                                        <h2>Long tail of Android support</h2>
-                                        <p><a href="https://www.usenix.org/conference/ures14/technical-sessions/presentation/moving-mobile">Chuck Rossi, release engineering, Facebook</a>
-                               <aside class="notes">
-                               </aside>
-                               </section>
-                               
-                               <section>
                                    <h2>Building a physical device lab</h2 >
                                     <p><a href="http://youtu.be/RTez9SEi2xI?t=4m45s">Lara Swanson and Destiny Montague, engineering, Etsy</a>
                                </section> 
-
-                               <section>
-                                   <h2>Going from 3 week to Daily releases</h2 >
-                                    <p><a href="https://www.usenix.org/conference/ures14/technical-sessions/presentation/going-3-week-daily-releases-netflix">Daniel Zapata, software engineer, Netflix  </a>
-                               <aside class="notes">
-			             dependancy relationships at 2:49
-                               </aside>
                                </section> 
-                               </section>
 
                                <section>
                                     <h2>Our project</h2>
@@ -429,7 +455,7 @@
                                      <li>AWS = Amazon web services</li>
                                      <li>Shared cloud resources</li>
                                      <li><a href="http://aws.amazon.com/ec2/instance-types/">Different instance types</a> - different resources - memory, disk, CPU</li>
-                                     <li>We are using a m3.medium instance type running Ubuntu 14.04</li>
+                                     <li>We are using a m3.large instance type running Ubuntu 14.04</li>
                                      </ul>
                                <aside class="notes">
 			            mention other cloud services Azure, IBM etc 
@@ -502,7 +528,7 @@ git config --global user.email you@example.com
 
 			       <section>
 			       <section>
-                                    <h2>Continuous Integration</h2>
+                                    <h2>Lab 2: Continuous Integration</h2>
                                     <ul>
                                     <li>Everything in version control - build, test and deployment  scripts</li>
                                     <li>Automate all the things: Build, test, deployment, update process</li>
@@ -518,7 +544,7 @@ git config --global user.email you@example.com
 
 
                                <section>
-                                    <h2>Lab 3: Jenkins</h2>
+                                    <h2>Lab 2: Jenkins</h2>
                                     <ul>
 				    <li><a href="http://jenkins-ci.org">Jenkins</a> in a continuous integration engine</li>
                                     <li>Written in Java</li>
@@ -532,8 +558,9 @@ git config --global user.email you@example.com
                                 </section>
 
                               <section>
-                                    <h2>Lab 3: Jenkins</h2>
+                                    <h2>Lab 2: Jenkins</h2>
                                     <p>Jenkins welcome page</p>
+				    <p>at your <i>>http://fqdn:8080</i></p>
                                         <a class="image" href="images/jenkinswelcome.png" target="_blank">
                                      <img width="1002" height="483" src="images/jenkinswelcome.png" alt="mozillareposcale"></a>
                                <aside class="notes">
@@ -541,7 +568,7 @@ git config --global user.email you@example.com
                                 </section>
 
                                <section>
-                                    <h2>Lab 3: Jenkins: Create a job</h2>
+                                    <h2>Lab 2: Jenkins: Create a job</h2>
                                     <ul>
                                     <li>Select <b>New Item</b> on left side of screen</li>
                                     <li>In <b>Item name</b> give your job a name</li>
@@ -554,7 +581,7 @@ git config --global user.email you@example.com
                                 </section>
 
                                <section>
-                                    <h2>Lab 3: Jenkins: Configure a job</h2>
+                                    <h2>Lab 2: Jenkins: Configure a job</h2>
                                     <ul>
                                     <li>Select <b>Configure</b> on left side of screen</li>
                                     </ul>
@@ -565,7 +592,7 @@ git config --global user.email you@example.com
                                 </section>
 
                                <section>
-                                    <h2>Lab 3: Jenkins: Clone from Git</h2>
+                                    <h2>Lab 2: Jenkins: Clone from Git</h2>
                                     <ul>
                                     <li>Under <b>Source Code Management</b> select Git</li>
 				    <li>Under <b>Repository URL	</b> enter the path to your local git repository i.e. /home/ubuntu/jenkinsapi and select <b>Save</b></li>
@@ -578,7 +605,7 @@ git config --global user.email you@example.com
                                 </section>
 
                                <section>
-                                    <h2>Lab 3: Jenkins: Build Results</h2>
+                                    <h2>Lab 2: Jenkins: Build Results</h2>
                                     <ul>
                                     <li>When the build finishes, look <b>Console Ouput</b> to see the output</li>
                                     </ul>
@@ -592,7 +619,7 @@ git config --global user.email you@example.com
 
 				<section>
                                 <section>
-                                    <h2>Lab 4: Jenkins: Build on Commit</h2>
+                                    <h2>Lab 3: Jenkins: Build on Commit</h2>
                                     <ul>
                                     <li>Select <b>Configure</b></li>
                                     <li>Select <b>Poll SCM</b></li>
@@ -605,7 +632,7 @@ git config --global user.email you@example.com
                                 </section>
 				 
                                  <section>
-                                    <h2>Lab 4: Jenkins: Commit a file</h2>
+                                    <h2>Lab 3: Jenkins: Commit a file</h2>
                                     <pre>
 ubuntu@ip-172-31-31-167:~/jenkinsapi$ cat TODO 
 TODO:
@@ -628,7 +655,7 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                 </section>
 
                                 <section>
-                                    <h2>Lab 4: Jenkins: Look at job output</h2>
+                                    <h2>Lab 3: Jenkins: Look at job output</h2>
                                     <ul>
                                     </ul>
                                      <a class="image" href="images/jenkinscommit.png" target="_blank">
@@ -664,7 +691,7 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
  
                                 <section>
                                 <section>
-                                    <h2>Lab 5: Add more build steps</h2>
+                                    <h2>Lab 4: Add more build steps</h2>
                                     <ul>
                                     <li>Select your build</li>
 				    <li>Go to <b>Configure</b></li>
@@ -680,7 +707,7 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
 
 
                                 <section>
-                                    <h2>Lab 5: Add more build steps</h2>
+                                    <h2>Lab 4: Add more build steps</h2>
                                     <ul>
 					    <li>Text to put in the <b>Command</b> box</li>
 				    </ul>
@@ -699,7 +726,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                  <section>
-                                    <h2>Lab 5: Add Test Results report</h2>
+                                    <h2>Lab 4: Add Test Results report</h2>
                                     <ul>
                                     <li>Under <b>Add post-build action</b></li>
                                     <li>Select <b>Publish JUnit test result report</b></li>
@@ -713,14 +740,14 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                  <section>
-                                    <h2>Lab 5: Test Results report</h2>
+                                    <h2>Lab 4: Test Results report</h2>
                                     <a class="image" href="images/jenkinstestsresults.png" target="_blank">
                                     <img width="1010" height="539" src="images/jenkinstestresults.png" alt="jenkinstestresults"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
                                <section>
-                                    <h2>Lab 4: Bonus labs</h2>
+                                    <h2>Lab 3: Bonus labs</h2>
                                     <ul>
                                     <li>Write a script to generate commits to the file</li>
                                     <li>Add additonal excecutors to the Jenkins install</li>
@@ -734,7 +761,7 @@ $WORKSPACE/jenkins_build.sh
 
                                 <section>
                                 <section>
-                                    <h2>Lab 6: Add some plugins</h2>
+                                    <h2>Lab 5: Add some plugins</h2>
                                     <ul>
                                             <li>On the left hand side select <b>Manage Jenkins</b></li>
                                             <li>Select <b>Manage Plugins</b></li>
@@ -748,7 +775,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
 				<section>
-                                    <h2>Lab 6: Restart Jenkins to enable new plugins</h2>
+                                    <h2>Lab 5: Restart Jenkins to enable new plugins</h2>
                                     <ul>
                                             <li>Select <b>Download now and install after restart</b></li>
                                             <li>Wait for the plugin to install</b></li>
@@ -761,7 +788,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                 <section>
-                                    <h2>Lab 6: Add a new build pipeline view</h2>
+                                    <h2>Lab 5: Add a new build pipeline view</h2>
                                     <ul>
 					    <li>On the views, select <b>+</b> to add a new view</li>
                                             <li>Select <b>Build Pipeline View</b></li>
@@ -774,7 +801,7 @@ $WORKSPACE/jenkins_build.sh
 
 
                                <section>
-                                    <h2>Lab 6: Look at build pipeline view</h2>
+                                    <h2>Lab 5: Look at build pipeline view</h2>
                                     <ul>
                                     </ul>
                                     <a class="image" href="images/jenkinspview.png" target="_blank">
@@ -783,7 +810,7 @@ $WORKSPACE/jenkins_build.sh
 
 
                                 <section>
-                                    <h2>Lab 6: Add two new build jobs</h2>
+                                    <h2>Lab 5: Add two new build jobs</h2>
                                     <ul>
                                     <li>Select <b>New Item</b> on left side of screen</li>
                                     <li>In <b>Item name</b> give your job a name like <i>Performance1</i></li>
@@ -796,7 +823,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                 <section>
-                                    <h2>Lab 6: Configure chained builds</h2>
+                                    <h2>Lab 5: Configure chained builds</h2>
                                     <ul>
                                     <li>On the Jenkins dashboard select <b>build1</b> and then <b>configure</b></li>
                                     <li>Select <b>Add post-build action</b></li>
@@ -809,7 +836,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                 <section>
-                                    <h2>Lab 6: Configure chained builds (2)</h2>
+                                    <h2>Lab 5: Configure chained builds (2)</h2>
                                     <ul>
                                     <li>Repeat these same steps so the performance build triggers the deployment build</li>
                                     </ul>
@@ -818,7 +845,7 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
                                 <section>
-                                    <h2>Lab 6: Run builds and look at pipeline view</h2>
+                                    <h2>Lab 5: Run builds and look at pipeline view</h2>
                                     <ul>
                                     <li>Run the performance and deploy tests (to save time) or build1 if you want</li>
                                     <li>Look at the pipeline view</li>
@@ -830,7 +857,7 @@ $WORKSPACE/jenkins_build.sh
 
                                 <section>
                                 <section>
-                                    <h2>Lab 7: REST APIs</h2>
+                                    <h2>Lab 6: REST APIs</h2>
                                     <ul>
                                             <li></li>
                                     </ul>
