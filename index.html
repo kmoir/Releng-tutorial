@@ -101,8 +101,8 @@
 
                                 <section>
 					<h2>Mozilla Releng Worldwide</h2>
-                                         <a class="image" href="images/remoties..png" target="_blank">
-                                         <img width="1160" height="722" src="images/remoties.png" alt="pipeline"></a>
+                                         <a class="image" href="images/remoties.png" target="_blank">
+                                         <img width="580" height="361" src="images/remoties.png" alt="pipeline"></a>
                                 <aside class="notes">
                                 </aside>
                                 </section>
@@ -897,6 +897,32 @@ $WORKSPACE/jenkins_build.sh
                                     <ul>
                                     <li>Implement another pipeline that runs from a diferent branch or tag</li>
                                     <li>Hint: You can copy existing jobs and modify</li>
+                                    </ul>
+                                </section>
+                                </section>
+
+
+                                <section>
+                                <section>
+                                    <h2>Scaling CI in the cloud</h2>
+                                    <ul>
+                                       <li>Why do we need to scale CI?</li>
+                                       <li>Different cloud vendors: Amazon, IBM, Microsoft, Rackspace.. </li>
+                                       <li>Goal is to increase capacity while minimizing cost </li>
+                                    </li>
+                                </section>
+                               <aside class="notes">
+			       <p>If you build on commit, the number of builds that you run will scale up as people wait in timezones and start landing code</p>
+                                </aside>
+
+                                <section>
+                                    <h2>More Capacity, less $</h2>
+                                    <ul>
+				        <li>Run instances in multiple regions</li>
+					<li>Start instances in cheaper regions first</li>
+					<li>Scripts to automatically shut down inactive instances</li>
+					<li>Start instances that have been recently running</li>
+					<li>Use spot instances vs on demand instances for tests</li>
                                     </ul>
                                 </section>
                                 </section>
