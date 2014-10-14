@@ -533,7 +533,7 @@ git config --global user.email you@example.com
                                     <li>Everything in version control - build, test and deployment  scripts</li>
                                     <li>Automate all the things: Build, test, deployment, update process</li>
                                     <li>Build on commit</li>
-                                    <li>Team Culture: Fix problems as they arise</li>
+                                    <li>Fix problems as they arise</li>
 				    <li><a href="http://www.infoq.com/research/ci-servers">Popular CI servers</a></li>
                                     </ul>
                                     <aside class="notes">
@@ -559,13 +559,30 @@ git config --global user.email you@example.com
 
                               <section>
                                     <h2>Lab 2: Jenkins</h2>
-                                    <p>Jenkins welcome page</p>
-				    <p>at your machine's  <i>http://fqdn:8080</i></p>
+				    <ul>
+                                    <li>Jenkins welcome page</li>
+				    <li>at your machine's  <i>http://fqdn:8080</i></li>
+				    </ul>
+                                        <a class="image" href="images/jenkinswelcome.png" target="_blank">
+                                     <img width="1384" height="408" src="images/jenkinswelcome.png" alt="mozillareposcale"></a>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                                <section>
+                                    <h2>Lab 2: Jenkins login</h2>
+                                    <ul>
+                                    <li>Select <b>login</b> in on left hand side</li>
+                                    <li>Username and password are on whiteboard</li>
+                                    <li>Select <b>Remember me on this computer</b></li>
+                                    </ul>
                                         <a class="image" href="images/jenkinswelcome.png" target="_blank">
                                      <img width="1002" height="483" src="images/jenkinswelcome.png" alt="mozillareposcale"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
+
+
 
                                <section>
                                     <h2>Lab 2: Jenkins: Create a job</h2>
@@ -576,17 +593,6 @@ git config --global user.email you@example.com
                                     </ul>
                                         <a class="image" href="images/jenkinsjob.png" target="_blank">
                                      <img width="1419" height="537" src="images/jenkinsjob.png" alt="mozillareposcale"></a>
-                               <aside class="notes">
-                                </aside>
-                                </section>
-
-                               <section>
-                                    <h2>Lab 2: Jenkins: Configure a job</h2>
-                                    <ul>
-                                    <li>Select <b>Configure</b> on left side of screen</li>
-                                    </ul>
-                                        <a class="image" href="images/jenkinsconfig.png" target="_blank">
-                                     <img width="1420" height="476" src="images/jenkinsconfig.png" alt="mozillareposcale"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
@@ -607,7 +613,7 @@ git config --global user.email you@example.com
                                <section>
                                     <h2>Lab 2: Jenkins: Build Results</h2>
                                     <ul>
-                                    <li>When the build finishes, look <b>Console Ouput</b> to see the output</li>
+                                    <li>When the build finishes, look <b>Console Ouput</b></li>
                                     </ul>
                                         <a class="image" href="images/jenkinsconsole.png" target="_blank">
                                      <img width="1446" height="549" src="images/jenkinsconsole.png" alt="mozillareposcale"></a>
@@ -621,9 +627,11 @@ git config --global user.email you@example.com
                                 <section>
                                     <h2>Lab 3: Jenkins: Build on Commit</h2>
                                     <ul>
+                                    <li>Select <b>Back to Project</b></li>
                                     <li>Select <b>Configure</b></li>
                                     <li>Select <b>Poll SCM</b></li>
                                     <li>Under <b>Schedule </b> enter <b>H/2 * * * *</b> to poll git every two minutes</li>
+                                    <li>Select <b>Save</b></li>
                                     </ul>
                                         <a class="image" href="images/jenkinsgit.png" target="_blank">
                                      <img width="722" height="447" src="images/jenkinsgit.png" alt="mozillareposcale"></a>
@@ -657,6 +665,8 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                 <section>
                                     <h2>Lab 3: Jenkins: Look at job output</h2>
                                     <ul>
+                                    <li>Another job should start within 2 minutes</li>
+                                    <li>But only if there is a new commit</li>
                                     </ul>
                                      <a class="image" href="images/jenkinscommit.png" target="_blank">
                                      <img width="1448" height="499" src="images/jenkinscommit.png" alt="jenkinscommit"></a>
@@ -701,7 +711,9 @@ ubuntu@ip-172-31-31-167:~/jenkinsapi$ git commit -a -m "updated TODO"
                                     <a class="image" href="images/jenkinsscript.png" target="_blank">
 	                            <img width="1439" height="591" src="images/jenkinsscript.png" alt="jenkinscommit"></a>
                                <aside class="notes">
-			            <p>The people who maintain the Python Jenkins API are really nice to includes a Jenkins script we can run to replicate their build</b>
+			            <p>The people who maintain the Python Jenkins API are really nice to includes a Jenkins script we can run to replicate their build</p>
+			            <p>It uses virtualenv to create a Python virtual environment to run the tests</p>
+			            <p>This is a good practive because it keeps the test environment separate from the machine environment</p>
                                 </aside>
                                 </section>
 
@@ -719,6 +731,7 @@ $WORKSPACE/jenkins_build.sh
                                     <ul>
 					    <li>Select <b>Save</b></li>
 					    <li>Select <b>Build now</b></li>
+					    <li>The build will take about 7 minutes</li>
 					    <li>What can you tell from the build output?</li>
 				    </ul>
                                <aside class="notes">
@@ -728,6 +741,8 @@ $WORKSPACE/jenkins_build.sh
                                  <section>
                                     <h2>Lab 4: Add Test Results report</h2>
                                     <ul>
+                                    <li>Go back to your project</li>
+				    <li>Select <b>Configure</b></li>
                                     <li>Under <b>Add post-build action</b></li>
                                     <li>Select <b>Publish JUnit test result report</b></li>
                                     <li>Enter <b>nosetests.xml</b></li>
@@ -741,15 +756,30 @@ $WORKSPACE/jenkins_build.sh
 
                                  <section>
                                     <h2>Lab 4: Test Results report</h2>
+                                    <ul>
+                                    <li>Go back to your project</li>
+                                    <li>On left hand side, select test result</li>
+                                    </ul>
                                     <a class="image" href="images/jenkinstestsresults.png" target="_blank">
                                     <img width="1010" height="539" src="images/jenkinstestresults.png" alt="jenkinstestresults"></a>
                                <aside class="notes">
                                 </aside>
                                 </section>
-                               <section>
-                                    <h2>Lab 3: Bonus labs</h2>
+
+                                <section>
+                                    <h2>Lab 4: Break things</h2>
                                     <ul>
-                                    <li>Write a script to generate commits to the file</li>
+                                    <li>Go change some code in the repository to break the build</li>
+                                    <li>i.e. comment out some files in the code</li>
+                                    </ul>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                               <section>
+                                    <h2>Lab 4: Bonus labs</h2>
+                                    <ul>
+                                    <li>Write a script to generate many commits to your git repository</li>
                                     <li>Add additonal excecutors to the Jenkins install</li>
                                     <li>Look at the number of queued jobs</li>
                                     </ul>
@@ -761,14 +791,17 @@ $WORKSPACE/jenkins_build.sh
 
                                 <section>
                                 <section>
-                                    <h2>Lab 5: Add some plugins</h2>
+                                    <h2>Lab 5: Add a plugin</h2>
                                     <ul>
+                                            <li>On the left hand side select <b>Back to Dashboard</b></li>
                                             <li>On the left hand side select <b>Manage Jenkins</b></li>
                                             <li>Select <b>Manage Plugins</b></li>
-                                            <li>You'll see a list of available plugins<b></b></li>
                                             <li>Select the <b>Available</b> tab</li>
+                                            <li>You'll see a list of available plugins<b></b></li>
                                             <li>Check the <b>Build Pipeline</b> plugin</li>
-                                            <li>Select <b>install</b> plugin</li>
+                                            <li>Select <b>Install</b> plugin</li>
+                                            <li>Select <b>Download now and install after restart</b> plugin</li>
+                                            <li>Select <b>Restart Jenkins when installation is complete and no jobs are running</b></li>
                                     </ul>
                                <aside class="notes">
                                 </aside>
@@ -777,9 +810,9 @@ $WORKSPACE/jenkins_build.sh
 				<section>
                                     <h2>Lab 5: Restart Jenkins to enable new plugins</h2>
                                     <ul>
-                                            <li>Select <b>Download now and install after restart</b></li>
-                                            <li>Wait for the plugin to install</b></li>
-                                            <li>Goto <b>http://your_jenkins_server/restart</b></li>
+                                            <li>Will take a few minutes to complete</li>
+                                            <li>After Jenkins has restarted, verified that the <b>Build Pipeline</b> plugin is listed under the installed tab</li>
+                                            <li>Go to <b>http://your_jenkins_server/restart</b> if it doesn't restart automatically</li>
                                     </ul>
                                     <a class="image" href="images/jenkinstestspipeline.png" target="_blank">
                                     <img width="1125" height="427" src="images/jenkinspipeline.png" alt="jenkinstestresults"></a>
@@ -790,10 +823,12 @@ $WORKSPACE/jenkins_build.sh
                                 <section>
                                     <h2>Lab 5: Add a new build pipeline view</h2>
                                     <ul>
-					    <li>On the views, select <b>+</b> to add a new view</li>
+                                            <li>Select <b>My Views</b> on the left hand side</li>
+					    <li>On the views pages, select <b>+</b> to add a new view</li>
                                             <li>Select <b>Build Pipeline View</b></li>
+                                            <li>Select <b>OK</b></li>
                                             <li>Enter <b>Build Pipeline</b> for the name</li>
-					    <li>The defaults are okay, select <b>Save</b></li>
+					    <li>The defaults are okay, select <b>OK</b></li>
                                     </ul>
                                     <a class="image" href="images/jenkinsview.png" target="_blank">
                                     <img width="1133" height="469" src="images/jenkinsview.png" alt="jenkinsnewview"></a>
@@ -812,6 +847,7 @@ $WORKSPACE/jenkins_build.sh
                                 <section>
                                     <h2>Lab 5: Add two new build jobs</h2>
                                     <ul>
+                                    <li>Select <b>Jenkins</b> to go back to the dashboard</li>
                                     <li>Select <b>New Item</b> on left side of screen</li>
                                     <li>In <b>Item name</b> give your job a name like <i>Performance1</i></li>
                                     <li>Select <b>Freestyle project</b> and select <b>OK</b></li>
@@ -847,10 +883,10 @@ $WORKSPACE/jenkins_build.sh
                                 <section>
                                     <h2>Lab 5: Run builds and look at pipeline</h2>
                                     <ul>
+                                    <li>Look at the pipeline view - does it show build -> performance -> deploy</li>
                                     <li>Run the performance and deploy tests (to save time) or build1 if you want</li>
-                                    <li>Look at the pipeline view</li>
                                     <a class="image" href="images/jenkinspipe.png" target="_blank">
-                                    <img width="867" height="334" src="images/jenkinschain.png" alt="jenkinspipe"></a>
+                                    <img width="867" height="334" src="images/jenkinspipe.png" alt="jenkinspipe"></a>
                                     </ul>
                                 </section>
 
