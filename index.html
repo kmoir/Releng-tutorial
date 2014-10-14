@@ -137,7 +137,7 @@
                                         </blockquote> 
 					<aside class="notes">
                                               At it's very essence we take source code, and turn it into products that you see on your phone, your desktop, at the bank machine, or on an airplane. We ensure that it
-                                              compiles, is packaged, tested, signed, can be updated and deployed. You may be wondering how are jobs are different more traditional software developers.
+                                              compiles, is packaged, tested, signed, can be updated and deployed. You may be wondering how are jobs are different than traditional software developers.
 					</aside>
                                 </section>
 
@@ -225,7 +225,7 @@
 				    <li>= shipping quality products on time</li> 
                                     <ul>
                                 <aside class="notes">
-                                     <p>Release engineers are not emotionally attached to the features in a product. Their focus is on building the pipeline that allows them to ship products on time. A software developer in a more traditional role may have invested months working a a new feature in a product.  But if this new feature is not of sufficient quality to be included in the current release, it should not be included.  Release management or release engineering may make this decision, depending on where you work.
+                                     <p>Release engineers are not emotionally attached to the features in a product. Their focus is on building the pipeline that allows them to ship products on time. A software developer in a traditional role may have invested months working a a new feature in a product.  But if this new feature is not of sufficient quality to be included in the current release, it should not be included.  Release management or release engineering may make this decision, depending on where you work.
 </p>
                                 </section>
 
@@ -363,7 +363,7 @@
                                         <ul>
                                         <li>Evaluating and writing tools</li>
                                         <li>Optimizing the pipeline for shorter end to end times</li>
-                                        <li>Removing bottlenecks then finding more</li>
+                                        <li>Removing bottlenecks then finding new ones </li>
                                         <li>Reducing costs and scaling capacity</li>
                                         </ul>
                                <aside class="notes">
@@ -554,6 +554,8 @@ git config --global user.email you@example.com
                                     </ul>
                                <aside class="notes">
                                    https://wiki.jenkins-ci.org/display/JENKINS/Plugins
+				   Examples in the wild: Netflix, as well as the Apache project (https://builds.apache.org)
+				   (Mozilla uses Buildbot which scales better for our volume)
                                 </aside>
                                 </section>
 
@@ -929,6 +931,62 @@ $WORKSPACE/jenkins_build.sh
                                 </section>
 
 
+                               <section>
+                                    <h2>Lab 6: Query your Jenkins server</h2>
+                                    <ul>
+                                    <li>Install jenkinsapi from pypi to ensure it's sane</li>
+                                    <li><b>sudo pip install jenkinsapi</b></li>
+                                    <li><a href="https://jenkinsapi.readthedocs.org/en/latest/api.html">Jenkins API reference</a></li>
+                                    <li>Example python to query the last successful builds
+                                    for each of the builds defined on your Jenkins server</li>
+                                    </ul>
+                                    <pre><code data-trim contenteditable>
+import jenkinsapi
+
+from jenkinsapi.jenkins import Jenkins
+J = Jenkins('http://localhost:8080')
+print "Jenkins Version %s" % J.version
+build_dict = J.keys()
+print "Jenkins keys %s" % build_dict
+for b in build_dict:
+print "Build name %s Last good build %s" % (b, J[b].get_last_good_build()
+                                    </code></pre>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                                 <section>
+                                    <h2>Lab 6: Query your neighbour's Jenkins server</h2>
+                                    <p>Replace localhost in the previous example their fqdn</p>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+                                <section>
+                                    <h2>Lab 6: Query the plugins installed</h2>
+                                    <ul>
+                                    <li>Example python to query the last successful builds
+                                    for each of the builds defined on your Jenkins server. Query your neighbours too!</p>
+                                    </li>
+                                    <pre><code data-trim contenteditable>
+import jenkinsapi
+
+from jenkinsapi.jenkins import Jenkins
+J = Jenkins('http://localhost:8080')
+print "Jenkins Version %s" % J.version
+for plugin in J.get_plugins().values():
+    print "Short Name:%s" %(plugin.shortName)
+    print "Long Name:%s" %(plugin.longName)
+    print "Version:%s" %(plugin.version)
+    print "URL:%s" %(plugin.url)
+    print "Active:%s" %(plugin.active)
+    print "Enabled:%s" %(plugin.enabled)
+                                    </code></pre>
+                               <aside class="notes">
+                                </aside>
+                                </section>
+
+
                                 </section>
 
 
@@ -941,9 +999,19 @@ $WORKSPACE/jenkins_build.sh
                                             <ul>
                                             <li>Examples...</li>
                                             </ul>
-                                            <li>Query the REST API of an open source project and plot it's history </li>
+					    <li><b>OR</b></li>
+					    <li>Query the REST API of <a href=https://builds.apache.org/">https://builds.apache.org/</a></li>
+					    <li>Please provide source code and define functions as appropriate</li>
+					    <li>If you prefer Java, you can use the Jenkins API for Java</li>
+					    <li>Or Ruby <a href="https://rubygems.org/gems/jenkins_api_client">Ruby Jenkins API</a></li>
                                             <ul>
-                                            <li>Examples...</li>
+                                            <li>What plugins are installed?</li>
+                                            <li>What builds are building?</li>
+                                            <li>What builds are running?</li>
+                                            <li>What builds are pending?</li>
+                                            <li>What haven't run a sucessful build in the past week? </li>
+                                            <li>What views are available</li>
+                                            <li></li>
                                             </ul>
                                     </ul>
                                <aside class="notes">
