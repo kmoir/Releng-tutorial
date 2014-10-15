@@ -1027,7 +1027,6 @@ for plugin in J.get_plugins().values():
                                     <ul>
                                             <li>Create a new build pipeline with a different open source project</li>
                                             <ul>
-                                             <li>Examples...</li>
                                      </ul>
                                      </ul>
 					     <p><b>OR</b></p>
@@ -1037,17 +1036,17 @@ for plugin in J.get_plugins().values():
                                     <h2>Challenge Exercise #2 </h2>
                                     <ul>
 
-					    <li>Query the REST API of <a href=https://builds.apache.org/">https://builds.apache.org/</a></li>
+					    <li>Query the REST API of <a href=https://builds.apache.org/">Apache project builds</a></li>
 					    <li>Please provide source code and define functions as appropriate</li>
-					    <li>If you prefer Java, you can use the Jenkins API for Java</li>
+					    <li>The Python Jenkins API doc is <a href="http://jenkinsapi.readthedocs.org/en/latest/">here"</a></li>
+					    <li>If you prefer Java, you can use the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">Jenkins API for Java</a></li>
 					    <li>Or Ruby <a href="https://rubygems.org/gems/jenkins_api_client">Ruby Jenkins API</a></li>
                                             <ul>
                                             <li>What plugins are installed?</li>
-                                            <li>What builds are building?</li>
                                             <li>What builds are running?</li>
-                                            <li>What builds are pending?</li>
-                                            <li>What haven't run a sucessful build in the past week? </li>
-                                            <li></li>
+                                            <li>Do the running builds have downstream builds?</li>
+                                            <li>What haven't run a successful build in the past week? </li>
+                                            <li>For failed builds, waht is the reason they failed?</li>
                                             </ul>
                                     </ul>
                                <aside class="notes">
