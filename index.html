@@ -976,9 +976,9 @@ import jenkinsapi
 from jenkinsapi.jenkins import Jenkins
 J = Jenkins('http://localhost:8080')
 print "Jenkins Version %s" % J.version
-build_dict = J.keys()
-print "Jenkins keys %s" % build_dict
-for b in build_dict:
+build_list = J.keys()
+print "Jenkins keys %s" % build_list
+for b in build_list:
 print "Build name %s Last good build %s" % (b, J[b].get_last_good_build())
                                     </code></pre>
                                <aside class="notes">
