@@ -15,3 +15,13 @@ install node.js from http://nodejs.org/
 sudo npm install
 sudo npm install grunt
 grunt serve
+
+The AWS images I used for this lab were m3.large running Unbuntu 14.04
+after the image was available I ran the following:
+apt-get install git
+https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu
+ports open 8080, 80, 22 in security rules in the AWS console
+update to latest jenkins
+install git plugin because it's not there by default 
+sudo apt-get install python-pip
+sudo pip install virtualenv
