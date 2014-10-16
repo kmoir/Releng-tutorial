@@ -2,3 +2,5 @@
 * More on branching an merging strategies
 * backing out patches
 * deploying pipeline changes to production
+* tagging
+* backporting to maintenance branches
